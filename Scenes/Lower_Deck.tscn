@@ -1,0 +1,52 @@
+[gd_scene load_steps=5 format=3 uid="uid://cwnrrijda1co6"]
+
+[ext_resource type="PackedScene" uid="uid://db4wagmehfi8q" path="res://Assets/Models/Rooms/Lower_Room.gltf" id="1_5qvvq"]
+[ext_resource type="Material" uid="uid://b02xxqtyj0yis" path="res://Assets/Material/Wood Plank/wood_planks.tres" id="2_4l84v"]
+[ext_resource type="PackedScene" uid="uid://dpbdc50rn20hj" path="res://Scenes/Chute.tscn" id="3_0atcd"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0ty46"]
+albedo_color = Color(0.819608, 0.513726, 0.733333, 1)
+
+[node name="Lower_Deck" type="Node3D"]
+
+[node name="Lower_Room" parent="." instance=ExtResource("1_5qvvq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.536244, 0, 0.0711172)
+
+[node name="Floor" parent="Lower_Room" index="0"]
+material_override = ExtResource("2_4l84v")
+surface_material_override/0 = ExtResource("2_4l84v")
+
+[node name="void_2" parent="Lower_Room" index="1"]
+surface_material_override/0 = SubResource("StandardMaterial3D_0ty46")
+
+[node name="void_1" parent="Lower_Room" index="2"]
+surface_material_override/0 = SubResource("StandardMaterial3D_0ty46")
+
+[node name="wall_7" parent="Lower_Room" index="3"]
+surface_material_override/0 = SubResource("StandardMaterial3D_0ty46")
+
+[node name="wall_1" parent="Lower_Room" index="4"]
+surface_material_override/0 = SubResource("StandardMaterial3D_0ty46")
+
+[node name="wall_6" parent="Lower_Room" index="5"]
+surface_material_override/0 = SubResource("StandardMaterial3D_0ty46")
+
+[node name="wall_5" parent="Lower_Room" index="6"]
+surface_material_override/0 = SubResource("StandardMaterial3D_0ty46")
+
+[node name="wall_4" parent="Lower_Room" index="7"]
+surface_material_override/0 = SubResource("StandardMaterial3D_0ty46")
+
+[node name="wall_3" parent="Lower_Room" index="8"]
+surface_material_override/0 = SubResource("StandardMaterial3D_0ty46")
+
+[node name="wall_2" parent="Lower_Room" index="9"]
+surface_material_override/0 = SubResource("StandardMaterial3D_0ty46")
+
+[node name="Chute" parent="." instance=ExtResource("3_0atcd")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -3.78807, 1.30485, -8.97144)
+
+[node name="Chute2" parent="." instance=ExtResource("3_0atcd")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -0.228735, 1.30485, -8.97144)
+
+[editable path="Lower_Room"]

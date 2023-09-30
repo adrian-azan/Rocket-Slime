@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://dpbdc50rn20hj"]
+
+[ext_resource type="PackedScene" uid="uid://dcoewes73mwo2" path="res://Assets/Models/Rooms/Chute.gltf" id="1_3g54e"]
+[ext_resource type="Material" uid="uid://dx8gyr0mw8nwr" path="res://Assets/Material/Metal/Metal.tres" id="2_n84tc"]
+
+[node name="Chute" type="Node3D"]
+
+[node name="Chute" parent="." instance=ExtResource("1_3g54e")]
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 0, 0, 0)
+
+[node name="Cylinder" parent="Chute" index="0"]
+surface_material_override/0 = ExtResource("2_n84tc")
+
+[node name="Cylinder_001" parent="Chute" index="1"]
+surface_material_override/0 = ExtResource("2_n84tc")
+
+[editable path="Chute"]
