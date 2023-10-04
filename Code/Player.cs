@@ -39,9 +39,9 @@ public partial class Player : Node3D
 
 		if (Input.IsActionJustReleased("Dash"))
 		{
-            velocity *= 3.0f; // Jump
+			velocity *= 3.0f; // Jump
 			Dash();
-        }
+		}
 	
 	 _rigidBody.ApplyCentralForce(velocity);
 
@@ -76,12 +76,12 @@ public void Check(bool state)
 
 		for (int i = 0; i < GetChildCount(); i++)
 		{
-            var child = GetChild<Node3D>(i);
+			var child = GetChild<Node3D>(i);
 			GD.Print(child.Name);
-            if (child.Name == "Exclamation")
+			if (child.Name == "Exclamation")
 			{
-                child.Visible = state;
-            }
+				child.Visible = state;
+			}
 			else
 			{
 				for (int j = 0; j < child.GetChildCount(); j++)
@@ -94,7 +94,7 @@ public void Check(bool state)
 					}
 				}
 			}
-        }		
+		}		
 }
 
 

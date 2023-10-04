@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://dfgdxhqjg4le8"]
+
+[ext_resource type="PackedScene" uid="uid://2yiw5jm7yi06" path="res://Assets/Models/Rooms/Upper_Room.gltf" id="1_cc0f1"]
+[ext_resource type="Material" uid="uid://b02xxqtyj0yis" path="res://Assets/Material/Wood Plank/wood_planks.tres" id="2_k86y0"]
+[ext_resource type="PackedScene" uid="uid://dpbdc50rn20hj" path="res://Scenes/Chute.tscn" id="3_3w1t0"]
+
+[node name="Upper_Room" type="Node3D"]
+
+[node name="Upper_Room" parent="." instance=ExtResource("1_cc0f1")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
+
+[node name="Floor_002" parent="Upper_Room/Empty_001" index="0"]
+surface_material_override/0 = ExtResource("2_k86y0")
+
+[node name="Chute" parent="." instance=ExtResource("3_3w1t0")]
+transform = Transform3D(-0.067371, 0, 0.997728, 0, 1, 0, -0.997728, 0, -0.067371, -5.59124, 2.30519, 7.9811)
+
+[node name="Chute2" parent="." instance=ExtResource("3_3w1t0")]
+transform = Transform3D(-0.067371, 0, 0.997728, 0, 1, 0, -0.997728, 0, -0.067371, -2.39452, 2.30519, 7.9811)
+
+[editable path="Upper_Room"]

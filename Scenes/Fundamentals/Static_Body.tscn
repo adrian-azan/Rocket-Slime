@@ -2,12 +2,12 @@
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_xxv1l"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_j2mo2"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0ewrx"]
 transparency = 1
 albedo_color = Color(1, 0.701961, 1, 0.12549)
 
 [sub_resource type="BoxMesh" id="BoxMesh_egvwf"]
-material = SubResource("StandardMaterial3D_j2mo2")
+material = SubResource("StandardMaterial3D_0ewrx")
 
 [node name="Static_Body" type="Node3D"]
 

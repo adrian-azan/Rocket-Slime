@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://1ymcb1obn72s"]
+
+[ext_resource type="PackedScene" uid="uid://cpo5is4364vux" path="res://Scenes/Fundamentals/Rigid_Body.tscn" id="1_kx4oi"]
+[ext_resource type="Material" path="res://Assets/Material/Irregular_Metal/Irregular_Metal.tres" id="2_sqlrm"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_kea2q"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_ucm5s"]
+
+[node name="CannonBall" type="Node3D"]
+
+[node name="Rigid_Body" parent="." instance=ExtResource("1_kx4oi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0164502, 0.0470376, 0.0148)
+
+[node name="RigidBody3D" parent="Rigid_Body" index="0"]
+linear_damp = 0.5
+angular_damp = 5.0
+
+[node name="CollisionShape3D" parent="Rigid_Body/RigidBody3D" index="0"]
+shape = SubResource("SphereShape3D_kea2q")
+
+[node name="MeshInstance3D" parent="Rigid_Body/RigidBody3D" index="1"]
+mesh = SubResource("SphereMesh_ucm5s")
+surface_material_override/0 = ExtResource("2_sqlrm")
+
+[editable path="Rigid_Body"]
