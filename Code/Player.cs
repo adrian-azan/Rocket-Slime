@@ -9,6 +9,8 @@ public partial class Player : Node3D
 	private RigidBody3D _rigidBody;
 	private float _acceleration = 50f;
 	private float _speed = 4f;
+
+	public bool _Prepared {get; private set;}
   public override void _PhysicsProcess(double delta)
 {
 	Vector3 velocity = new Vector3(0, 0, 0);
@@ -37,9 +39,9 @@ public partial class Player : Node3D
 			velocity = velocity.Normalized() * _acceleration;
 		}
 
-		if (Input.IsActionJustReleased("Dash"))
+		if ( _Prepared && Input.IsActionJustReleased("Dash"))
 		{
-			velocity *= 3.0f; // Jump
+			velocity *= 3.0f; 
 			Dash();
 		}
 	
@@ -53,20 +55,36 @@ public partial class Player : Node3D
 	public async void Dash()
 	{
 		_speed *= 2;
+		_Prepared = false;
 		await ToSignal(GetTree().CreateTimer(1.0f), SceneTreeTimer.SignalName.Timeout);		
+		_Prepared = true;
 		_speed /= 2;
 	}
 
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
-		_rigidBody = GetNode<RigidBody3D>("RigidBody3D");
-		GD.Print(_rigidBody);
+		_rigidBody = GetNode<RigidBody3D>("Rigid_Body/RigidBody3D");
+		_Prepared = true;
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta)
 	{
+	}
+
+
+
+	public void Hit(Node3D other)
+	{
+		var target = other.GetOwnerOrNull<Node3D>();
+					GD.Print("Hit");    
+
+		if (target is Item)
+		{
+			GD.Print($"ITEMS {other}");    
+		}
+
 	}
 
 

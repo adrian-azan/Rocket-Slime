@@ -12,6 +12,12 @@ material = SubResource("StandardMaterial3D_0ewrx")
 [node name="Static_Body" type="Node3D"]
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
+axis_lock_linear_x = true
+axis_lock_linear_y = true
+axis_lock_linear_z = true
+axis_lock_angular_x = true
+axis_lock_angular_y = true
+axis_lock_angular_z = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
 shape = SubResource("BoxShape3D_xxv1l")

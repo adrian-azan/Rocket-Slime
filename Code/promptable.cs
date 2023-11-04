@@ -2,7 +2,7 @@ using Godot;
 using System;
 using static System.Net.Mime.MediaTypeNames;
 
-public partial class promptable : Node
+public partial class promptable : Node3D
 {
 	[ExportGroup("Prompt")]
 	[Export(PropertyHint.File)]
@@ -11,6 +11,18 @@ public partial class promptable : Node
 	public Node3D _Accent;
 
 	bool _isBeingPercieved = false;
+	Rigid_Body _rb;
+
+
+	public override void _Ready()
+	{
+		_rb = Tools.FindRigidBodyFromRoot(this);
+		if (_rb == null)
+		{
+			GD.Print(ToString() + " has no rigid body");
+		}
+    }
+
 	public override void _Process(double delta)
 	{
 	   if (_isBeingPercieved && Input.IsActionJustPressed("Interact"))
@@ -18,11 +30,8 @@ public partial class promptable : Node
 			//FilePath.
 			var file = FileAccess.Open(JsonFile.ResourcePath, FileAccess.ModeFlags.Read);
 			 var content = Json.ParseString(file.GetAsText());
-			GD.Print(content.AsGodotDictionary()["details"]);
 
-		   // GD.Print(FilePath.()["details"]);
 		}
-	   
 	   
 	}
 
@@ -30,12 +39,9 @@ public partial class promptable : Node
 	{
 		var target = other.GetOwnerOrNull<Node3D>();
 
-		if (target.Name == "Player")
+		if (target is Player)
 		{
-			_isBeingPercieved = true;
-			var  test = (Player)target;
-			test.Check(true);
-			//GD.Print("PLAYER {}",other);    
+			GD.Print("PERCIEVED {}",other);    
 		}
 
 	}
@@ -46,17 +52,15 @@ public partial class promptable : Node
 		if (target.Name == "Player")
 		{         
 			_isBeingPercieved = false;
-						var  test = (Player)target;
+			var  test = (Player)target;
 
-						test.Check(false);
 
-			//GD.Print("PLAYER {}",other);    
 		}
    
 	}
 
 	public override string ToString()
 	{
-		return "aass";//file.GetParsedText();
+		return "promptable";//file.GetParsedText();
 	}
 }

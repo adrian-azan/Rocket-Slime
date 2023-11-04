@@ -5,10 +5,9 @@
 [ext_resource type="Material" uid="uid://dx8gyr0mw8nwr" path="res://Assets/Material/Metal/Metal.tres" id="2_n84tc"]
 [ext_resource type="PackedScene" uid="uid://1ymcb1obn72s" path="res://Scenes/CannonBall.tscn" id="2_xq7hc"]
 
-[node name="Chute" type="Node3D" node_paths=PackedStringArray("_Visual")]
+[node name="Chute" type="Node3D"]
 script = ExtResource("1_dskag")
-item = ExtResource("2_xq7hc")
-_Visual = NodePath("")
+_Item = ExtResource("2_xq7hc")
 
 [node name="Chute" parent="." instance=ExtResource("1_3g54e")]
 transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 0, 0, 0)

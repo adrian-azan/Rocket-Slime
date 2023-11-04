@@ -1,6 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://cjwqgyfbdfswp"]
-
-[ext_resource type="PackedScene" uid="uid://bxdih8oyvahmv" path="res://Scenes/Fundamentals/Entity.tscn" id="1_sv83p"]
+[gd_scene load_steps=4 format=3 uid="uid://cjwqgyfbdfswp"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ohwdi"]
 
@@ -11,7 +9,7 @@ albedo_color = Color(1, 0.705882, 1, 0.0588235)
 [sub_resource type="BoxMesh" id="BoxMesh_omdw5"]
 material = SubResource("StandardMaterial3D_5n6j1")
 
-[node name="Entity_Rigid" instance=ExtResource("1_sv83p")]
+[node name="Entity_Rigid"]
 
 [node name="RigidBody3D" type="RigidBody3D" parent="." index="0"]
 

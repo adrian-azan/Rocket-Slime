@@ -1,4 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://cpo5is4364vux"]
+[gd_scene load_steps=5 format=3 uid="uid://cpo5is4364vux"]
+
+[ext_resource type="Script" path="res://Code/Rigid_Body.cs" id="1_h2lrm"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_j7i1p"]
 
@@ -10,6 +12,7 @@ albedo_color = Color(1, 0.701961, 1, 0.12549)
 material = SubResource("StandardMaterial3D_j2mo2")
 
 [node name="Rigid_Body" type="Node3D"]
+script = ExtResource("1_h2lrm")
 
 [node name="RigidBody3D" type="RigidBody3D" parent="."]
 
@@ -17,6 +20,5 @@ material = SubResource("StandardMaterial3D_j2mo2")
 shape = SubResource("BoxShape3D_j7i1p")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00956059, 2.38419e-07, -0.0201774)
 mesh = SubResource("BoxMesh_fyn7i")
 skeleton = NodePath("")

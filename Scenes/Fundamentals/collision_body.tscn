@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://bq730q2f7vhto"]
+
+[ext_resource type="Script" path="res://Code/promptable.cs" id="1_o4c7s"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_dux1w"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_rvrtj"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_aw80n"]
+transparency = 1
+albedo_color = Color(1, 1, 0.0745098, 0.301961)
+
+[node name="Collision_Body" type="Area3D"]
+collision_priority = 100.0
+script = ExtResource("1_o4c7s")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.981394, 0, 0, 0, 0.981394, 0, 0, 0, 0.981394, 0, 0, 0)
+shape = SubResource("SphereShape3D_dux1w")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("SphereMesh_rvrtj")
+surface_material_override/0 = SubResource("StandardMaterial3D_aw80n")

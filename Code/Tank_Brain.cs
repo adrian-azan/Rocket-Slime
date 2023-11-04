@@ -13,7 +13,6 @@ public partial class Tank_Brain : Node3D
 	{
 		_Chutes = new ArrayList();
 		FindNodes("./",0);
-		GD.Print(_Chutes.Count);
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -38,11 +37,9 @@ public partial class Tank_Brain : Node3D
 			return;
 		}
 		
-	//	GD.Print(path);
 		foreach (var node in nodes)
 		{
 			var chute = node.GetNodeOrNull<Chute>(path);
-			GD.Print(node.Name + " " +node.GetClass());
 			string name = node.Name.ToString();
 			if (node is Chute)
 			{

@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://cxlnst0tnojlt"]
+
+[ext_resource type="PackedScene" uid="uid://bxdih8oyvahmv" path="res://Scenes/Fundamentals/Entity/Entity.tscn" id="1_3wh1m"]
+[ext_resource type="PackedScene" uid="uid://b1ctqfv8kafn8" path="res://Scenes/Fundamentals/Static_Body.tscn" id="2_2um7c"]
+
+[node name="Entity_Static" instance=ExtResource("1_3wh1m")]
+
+[node name="Static_Body" parent="." index="0" instance=ExtResource("2_2um7c")]
+
+[node name="VisualBody" type="Node3D" parent="." index="1"]

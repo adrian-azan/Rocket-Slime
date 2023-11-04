@@ -21,9 +21,8 @@ public partial class Chute : Node3D
 	}
 
 	public async void SpawnItem()
-	{
-		
-		//Lock
+	{		
+		//Lock/unlock
 		_Prepared = false;
 		await ToSignal(GetTree().CreateTimer(new Random().Next(_MinTime,_MaxTime)), SceneTreeTimer.SignalName.Timeout);
 		_Prepared = true;
