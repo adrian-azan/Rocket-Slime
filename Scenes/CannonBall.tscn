@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Code/Item.cs" id="1_2kl84"]
 [ext_resource type="PackedScene" uid="uid://cpo5is4364vux" path="res://Scenes/Fundamentals/Rigid_Body.tscn" id="1_kx4oi"]
-[ext_resource type="Material" path="res://Assets/Material/Irregular_Metal/Irregular_Metal.tres" id="2_sqlrm"]
+[ext_resource type="Material" uid="uid://c3c6804g0cnm0" path="res://Assets/Material/Irregular_Metal/Irregular_Metal.tres" id="2_sqlrm"]
 [ext_resource type="PackedScene" uid="uid://bq730q2f7vhto" path="res://Scenes/Fundamentals/collision_body.tscn" id="4_5dokb"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_kea2q"]
@@ -15,7 +15,6 @@ script = ExtResource("1_2kl84")
 [node name="Rigid_Body" parent="." instance=ExtResource("1_kx4oi")]
 
 [node name="RigidBody3D" parent="Rigid_Body" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00828958, -2.38419e-07, -0.00840521)
 collision_layer = 2
 linear_damp = 0.5
 angular_damp = 5.0
@@ -27,7 +26,7 @@ shape = SubResource("SphereShape3D_kea2q")
 mesh = SubResource("SphereMesh_ucm5s")
 surface_material_override/0 = ExtResource("2_sqlrm")
 
-[node name="Area3D" parent="Rigid_Body" instance=ExtResource("4_5dokb")]
-transform = Transform3D(1.4, 0, 0, 0, 1.4, 0, 0, 0, 1.4, -0.0164502, -0.0470376, -0.0148)
+[node name="Collision_Body" parent="Rigid_Body" instance=ExtResource("4_5dokb")]
+transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, 0, 0, 0)
 
 [editable path="Rigid_Body"]

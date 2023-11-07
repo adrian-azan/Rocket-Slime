@@ -27,10 +27,15 @@ mesh = SubResource("CapsuleMesh_nbcc7")
 [node name="Area3D" parent="Rigid_Body" instance=ExtResource("2_vh2ay")]
 transform = Transform3D(1.3, 0, 0, 0, 1.3, 0, 0, 0, 1.3, 0, 0, 0)
 
+[node name="Area3D" parent="Rigid_Body/Area3D" index="0"]
+disable_mode = 1
+
 [node name="Camera3D" type="Camera3D" parent="Rigid_Body"]
 transform = Transform3D(-1.00074, 6.70194e-08, -5.6236e-08, 2.99225e-08, 0.866667, 0.50037, 8.22114e-08, 0.50037, -0.866667, 0, 3.6, -4.5)
+visible = false
 
-[connection signal="area_entered" from="Rigid_Body/Area3D" to="." method="Hit"]
-[connection signal="body_entered" from="Rigid_Body/Area3D" to="." method="Hit"]
+[connection signal="area_entered" from="Rigid_Body/Area3D/Area3D" to="." method="Pickup"]
+[connection signal="body_entered" from="Rigid_Body/Area3D/Area3D" to="." method="Pickup"]
 
 [editable path="Rigid_Body"]
+[editable path="Rigid_Body/Area3D"]

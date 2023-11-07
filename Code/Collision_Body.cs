@@ -1,13 +1,8 @@
 using Godot;
 using System;
-using static System.Net.Mime.MediaTypeNames;
 
-public partial class promptable : Node3D
+public partial class Collision_Body : Node3D
 {
-	[ExportGroup("Prompt")]
-	[Export(PropertyHint.File)]
-	public Resource JsonFile;
-
 	public Node3D _Accent;
 
 	bool _isBeingPercieved = false;
@@ -23,21 +18,26 @@ public partial class promptable : Node3D
 		{
 			GD.Print(ToString() + " has no rigid body");
 		}
-		_Area = GetNodeOrNull<Area3D>(".");
-		_Area.Monitorable = false;
+		_Area = GetNodeOrNull<Area3D>("Area3D");
     }
 
 	public override void _Process(double delta)
 	{
 	   if (_isBeingPercieved && Input.IsActionJustPressed("Interact"))
 		{
-			//FilePath.
-			var file = FileAccess.Open(JsonFile.ResourcePath, FileAccess.ModeFlags.Read);
-			 var content = Json.ParseString(file.GetAsText());
 
-		}
-	   
+		}	   
 	}
+
+	public void Enable()
+	{
+		_Area.ProcessMode = ProcessModeEnum.Inherit;
+    }
+
+	public void Disable()
+	{
+        _Area.ProcessMode = ProcessModeEnum.Disabled;
+    }
 
 	public void BeingPercieved(Node3D other)
 	{
@@ -65,6 +65,8 @@ public partial class promptable : Node3D
 
 	public override string ToString()
 	{
-		return "promptable";//file.GetParsedText();
+		return "Collision_Body";//file.GetParsedText();
 	}
 }
+
+

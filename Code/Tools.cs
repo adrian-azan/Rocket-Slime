@@ -24,9 +24,15 @@ public static class Tools
 
     public static Rigid_Body FindRigidBodyFromRoot(Node Source)
     {
-        return FindRigidBody(Source.Owner);
+        return FindRigidBody(Source.Owner == null ? Source : Source.Owner);
     }
 
+    public static Node GetRoot(Node Source)
+    {
+        if (Source.Owner == null)
+            return Source;
+        return GetRoot(Source.Owner);
+    }
 
 
 }
