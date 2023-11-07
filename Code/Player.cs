@@ -12,7 +12,7 @@ public partial class Player : Node3D
 	private float _acceleration = 50f;
 	private float _speed = 4f;
 
-	private Queue<Node3D> _Items;
+	private Stack<Node3D> _Items;
 
 
 	public bool _Prepared {get; private set;}
@@ -69,7 +69,7 @@ public partial class Player : Node3D
 	{
 		_rigidBody = GetNode<RigidBody3D>("Rigid_Body/RigidBody3D");
 		_RigidBody = GetNode<Rigid_Body>("Rigid_Body");
-		_Items = new Queue<Node3D>();
+		_Items = new Stack<Node3D>();
 		_Prepared = true;
 	}
 
@@ -82,7 +82,7 @@ public partial class Player : Node3D
 	{
 		if (_Items.Count > 0)
 		{
-			var item = _Items.Dequeue() as Item;
+			var item = _Items.Pop() as Item;
 			_RigidBody.RemoveChild(item);
 			item.Throw(Direction);
 		}
@@ -96,7 +96,7 @@ public partial class Player : Node3D
 		{
 			var t = target as Item;
 			_RigidBody.AddChild(t,Vector3.Up* (_RigidBody.ChildrenSize()-1));
-			_Items.Enqueue(t);
+			_Items.Push(t);
 			t._RigidBody.Disable();
 			t._CollisionBody.Disable();
 		}
