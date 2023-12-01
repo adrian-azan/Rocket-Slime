@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://bq730q2f7vhto"]
 
-[ext_resource type="Script" path="res://Code/Collision_Body.cs" id="1_po4c1"]
+[ext_resource type="Script" path="res://Code/Collision_Body.cs" id="1_dixwb"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_dux1w"]
 
@@ -11,7 +11,7 @@ transparency = 1
 albedo_color = Color(1, 1, 0.0745098, 0.337255)
 
 [node name="Collision_Body" type="Node3D"]
-script = ExtResource("1_po4c1")
+script = ExtResource("1_dixwb")
 
 [node name="Area3D" type="Area3D" parent="."]
 collision_priority = 100.0

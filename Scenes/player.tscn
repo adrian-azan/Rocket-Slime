@@ -26,6 +26,7 @@ mesh = SubResource("CapsuleMesh_nbcc7")
 
 [node name="Area3D" parent="Rigid_Body" instance=ExtResource("2_vh2ay")]
 transform = Transform3D(1.3, 0, 0, 0, 1.3, 0, 0, 0, 1.3, 0, 0, 0)
+visible = false
 
 [node name="Area3D" parent="Rigid_Body/Area3D" index="0"]
 disable_mode = 1

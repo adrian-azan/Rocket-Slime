@@ -50,7 +50,13 @@ public partial class Player : Node3D
 			Dash();
 		}
 
-	
+	if (velocity.Length() != 0)
+		{
+			foreach (Item item in _Items)
+			{
+				item._AnimationPlayer.Play("Bounce");
+			}
+		}
 	
 	_rigidBody.ApplyCentralForce(velocity);
 	_rigidBody.LinearVelocity = _rigidBody.LinearVelocity.LimitLength(_speed);
@@ -69,6 +75,7 @@ public partial class Player : Node3D
 	{
 		_rigidBody = GetNode<RigidBody3D>("Rigid_Body/RigidBody3D");
 		_RigidBody = GetNode<Rigid_Body>("Rigid_Body");
+		
 		_Items = new Stack<Node3D>();
 		_Prepared = true;
 	}
@@ -84,6 +91,7 @@ public partial class Player : Node3D
 		{
 			var item = _Items.Pop() as Item;
 			_RigidBody.RemoveChild(item);
+			item._AnimationPlayer.Stop();
 			item.Throw(Direction);
 		}
 	}
@@ -99,6 +107,7 @@ public partial class Player : Node3D
 			_Items.Push(t);
 			t._RigidBody.Disable();
 			t._CollisionBody.Disable();
+			t._AnimationPlayer.Play("Bounce");
 		}
 
 	}

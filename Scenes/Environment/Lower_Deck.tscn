@@ -11,6 +11,9 @@
 [node name="Floor" parent="Lower_Room/Empty" index="0"]
 surface_material_override/0 = ExtResource("2_4l84v")
 
+[node name="void_1" parent="Lower_Room/Empty" index="1"]
+transform = Transform3D(2.45, 0, 0, 0, 0.2, 0, 0, 0, 1.7, -1.485, 1, 8.2)
+
 [node name="Chute" parent="." instance=ExtResource("3_0atcd")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -13.1389, 1.30485, -8.97144)
 

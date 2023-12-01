@@ -1,0 +1,57 @@
+[gd_scene load_steps=8 format=3 uid="uid://lfx6gfr2tasr"]
+
+[ext_resource type="PackedScene" uid="uid://b6jrffyofuwvs" path="res://Assets/Models/Objects/Cannon.gltf" id="1_6kduf"]
+[ext_resource type="Script" path="res://Code/Cannon.cs" id="1_yup5h"]
+[ext_resource type="PackedScene" uid="uid://bq730q2f7vhto" path="res://Scenes/Fundamentals/collision_body.tscn" id="2_qdlit"]
+[ext_resource type="PackedScene" uid="uid://b1ctqfv8kafn8" path="res://Scenes/Fundamentals/Static_Body.tscn" id="4_8i724"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_5ewig"]
+friction = 0.0
+
+[sub_resource type="Animation" id="Animation_7cq2i"]
+resource_name = "Kaboom"
+length = 2.0
+tracks/0/type = "scale_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Cannon/Empty")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 1, 1, 1, 0.5, 1, 1, 1.3, 0.5, 0.7, 1, 1, 1.3, 0.5, 1, 1, 1, 0.7, 1.3, 1.3, 1, 1, 0.7, 1.3, 1.7, 1, 1, 1, 1)
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_8wr3n"]
+_data = {
+"Kaboom": SubResource("Animation_7cq2i")
+}
+
+[node name="Cannon-Upper" type="Node3D"]
+script = ExtResource("1_yup5h")
+
+[node name="Cannon" parent="." instance=ExtResource("1_6kduf")]
+
+[node name="Collision_Body" parent="." instance=ExtResource("2_qdlit")]
+transform = Transform3D(3.255, 0, 0, 0, 3.685, 0, 0, 0, 3.85, 0, 0, 0)
+visible = false
+
+[node name="Area3D" parent="Collision_Body" index="0"]
+collision_mask = 2
+monitorable = false
+
+[node name="Static_Body" parent="." instance=ExtResource("4_8i724")]
+transform = Transform3D(2.88, 0, 0, 0, 0.695, 0, 0, 0, 4.545, 0, 0, 0)
+visible = false
+
+[node name="StaticBody3D" parent="Static_Body" index="0"]
+physics_material_override = SubResource("PhysicsMaterial_5ewig")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+reset_on_save = false
+libraries = {
+"": SubResource("AnimationLibrary_8wr3n")
+}
+
+[connection signal="body_entered" from="Collision_Body/Area3D" to="." method="On_Collision"]
+
+[editable path="Cannon"]
+[editable path="Collision_Body"]
+[editable path="Static_Body"]
