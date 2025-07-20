@@ -1,9 +1,8 @@
 using Godot;
 using System;
 
-public static class Tools 
+public static class Tools
 {
-
     public static Rigid_Body FindRigidBody(Node Source)
     {
         var children = Source.GetChildren();
@@ -40,6 +39,4 @@ public static class Tools
             return Source;
         return GetRoot(Source.Owner);
     }
-
-
 }

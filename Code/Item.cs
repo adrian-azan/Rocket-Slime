@@ -15,20 +15,17 @@ public partial class Item : Node3D
         _AnimationPlayer = GetNode<AnimationPlayer>("AnimationPlayer");
         Grabbed = false;
     }
-      
-     
+
     public async void Throw(Vector3 Direction)
     {
         Grabbed = false;
         _RigidBody.Enable();
         _RigidBody.AddForce((Direction) * 750);
 
-
-        await ToSignal(GetTree().CreateTimer(2.0f), SceneTreeTimer.SignalName.Timeout);		
+        await ToSignal(GetTree().CreateTimer(2.0f), SceneTreeTimer.SignalName.Timeout);
 
         _CollisionBody.Enable();
 
         GD.Print(_RigidBody.ToString());
     }
 }
-

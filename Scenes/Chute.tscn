@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://dpbdc50rn20hj"]
 
 [ext_resource type="PackedScene" uid="uid://dcoewes73mwo2" path="res://Assets/Models/Rooms/Chute.gltf" id="1_3g54e"]
-[ext_resource type="Script" path="res://Code/Chute.cs" id="1_dskag"]
+[ext_resource type="Script" uid="uid://cukdsb2op68ax" path="res://Code/Chute.cs" id="1_dskag"]
 [ext_resource type="Material" uid="uid://dx8gyr0mw8nwr" path="res://Assets/Material/Metal/Metal.tres" id="2_n84tc"]
 [ext_resource type="PackedScene" uid="uid://1ymcb1obn72s" path="res://Scenes/CannonBall.tscn" id="2_xq7hc"]
 

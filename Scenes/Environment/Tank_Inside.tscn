@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://ci04atsoogsp4"]
 
 [ext_resource type="PackedScene" uid="uid://cwnrrijda1co6" path="res://Scenes/Environment/Lower_Deck.tscn" id="1_axnxj"]
-[ext_resource type="Script" path="res://Code/Tank_Brain.cs" id="1_hvbwc"]
+[ext_resource type="Script" uid="uid://dqrojc5cvj8as" path="res://Code/Tank_Brain.cs" id="1_hvbwc"]
 [ext_resource type="PackedScene" uid="uid://bjn7smkl2qxwq" path="res://Scenes/player.tscn" id="2_pg2p6"]
 [ext_resource type="PackedScene" uid="uid://dixbdwfiir12k" path="res://Scenes/Environment/Middle_Deck.tscn" id="3_2bcd7"]
 [ext_resource type="PackedScene" uid="uid://dfgdxhqjg4le8" path="res://Scenes/Environment/Upper_Deck.tscn" id="4_agi1p"]

@@ -1,15 +1,17 @@
 [gd_scene load_steps=6 format=3 uid="uid://bjn7smkl2qxwq"]
 
-[ext_resource type="Script" path="res://Code/Player.cs" id="2_5y2f8"]
 [ext_resource type="PackedScene" uid="uid://bq730q2f7vhto" path="res://Scenes/Fundamentals/collision_body.tscn" id="2_vh2ay"]
 [ext_resource type="PackedScene" uid="uid://cpo5is4364vux" path="res://Scenes/Fundamentals/Rigid_Body.tscn" id="3_kgynb"]
+
+[sub_resource type="Resource" id="Resource_cvnsp"]
+metadata/__load_path__ = "res://Code/Player.cs"
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_30kim"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_nbcc7"]
 
 [node name="Player" type="Node3D"]
-script = ExtResource("2_5y2f8")
+script = SubResource("Resource_cvnsp")
 
 [node name="Rigid_Body" parent="." instance=ExtResource("3_kgynb")]
 
