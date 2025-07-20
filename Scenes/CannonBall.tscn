@@ -1,8 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://1ymcb1obn72s"]
+[gd_scene load_steps=11 format=3 uid="uid://1ymcb1obn72s"]
 
 [ext_resource type="Script" uid="uid://cqkdlp1ukvd0x" path="res://Code/Item.cs" id="1_2kl84"]
 [ext_resource type="PackedScene" uid="uid://cpo5is4364vux" path="res://Scenes/Fundamentals/Rigid_Body.tscn" id="1_kx4oi"]
 [ext_resource type="Material" uid="uid://c3c6804g0cnm0" path="res://Assets/Material/Irregular_Metal/Irregular_Metal.tres" id="2_sqlrm"]
+[ext_resource type="Script" uid="uid://d13c27iqrhrii" path="res://Code/Fundamentals/Rigid_Body.cs" id="3_0n328"]
 [ext_resource type="PackedScene" uid="uid://bq730q2f7vhto" path="res://Scenes/Fundamentals/collision_body.tscn" id="4_5dokb"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_huq4t"]
@@ -32,6 +33,7 @@ _data = {
 script = ExtResource("1_2kl84")
 
 [node name="Rigid_Body" parent="." instance=ExtResource("1_kx4oi")]
+script = ExtResource("3_0n328")
 
 [node name="RigidBody3D" parent="Rigid_Body" index="0"]
 collision_layer = 2
@@ -48,11 +50,10 @@ surface_material_override/0 = ExtResource("2_sqlrm")
 
 [node name="Collision_Body" parent="Rigid_Body" instance=ExtResource("4_5dokb")]
 transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, 0, 0, 0)
-visible = false
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_vxyh5")
+&"": SubResource("AnimationLibrary_vxyh5")
 }
 
 [connection signal="body_entered" from="Rigid_Body/Collision_Body/Area3D" to="." method="Touched"]

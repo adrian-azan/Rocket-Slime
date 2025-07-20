@@ -1,7 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://bq730q2f7vhto"]
 
-[sub_resource type="Resource" id="Resource_pud5d"]
-metadata/__load_path__ = "res://Code/Collision_Body.cs"
+[ext_resource type="Script" uid="uid://cv7mx3s5e306r" path="res://Code/Fundamentals/Collision_Body.cs" id="1_s15mj"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_dux1w"]
 
@@ -12,7 +11,7 @@ transparency = 1
 albedo_color = Color(1, 1, 0.0745098, 0.337255)
 
 [node name="Collision_Body" type="Node3D"]
-script = SubResource("Resource_pud5d")
+script = ExtResource("1_s15mj")
 
 [node name="Area3D" type="Area3D" parent="."]
 collision_priority = 100.0

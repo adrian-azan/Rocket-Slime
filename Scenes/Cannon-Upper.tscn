@@ -47,7 +47,7 @@ physics_material_override = SubResource("PhysicsMaterial_5ewig")
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 reset_on_save = false
 libraries = {
-"": SubResource("AnimationLibrary_8wr3n")
+&"": SubResource("AnimationLibrary_8wr3n")
 }
 
 [connection signal="body_entered" from="Collision_Body/Area3D" to="." method="On_Collision"]

@@ -1,7 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://cpo5is4364vux"]
-
-[sub_resource type="Resource" id="Resource_6wh0x"]
-metadata/__load_path__ = "res://Code/Rigid_Body.cs"
+[gd_scene load_steps=4 format=3 uid="uid://cpo5is4364vux"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_j7i1p"]
 
@@ -13,7 +10,6 @@ albedo_color = Color(1, 0.701961, 1, 0.12549)
 material = SubResource("StandardMaterial3D_j2mo2")
 
 [node name="Rigid_Body" type="Node3D"]
-script = SubResource("Resource_6wh0x")
 
 [node name="RigidBody3D" type="RigidBody3D" parent="."]
 

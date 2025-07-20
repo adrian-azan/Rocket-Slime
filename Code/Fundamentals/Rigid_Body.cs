@@ -65,13 +65,13 @@ public partial class Rigid_Body : Node3D
         {
             GD.Print("Child already added");
         }
-        //rb.CollisionLayer (0);
-        //rb.CollisionMask(0);
     }
 
     public void RemoveChild(Node3D child)
     {
         GD.Print(_ChildrenAndPos.Remove(child));
+
+        _ChildrenAndPos.Remove(child);
         var rb = Tools.FindRigidBodyFromRoot(child);
         rb.Enable();
     }
@@ -115,17 +115,17 @@ public partial class Rigid_Body : Node3D
         _RigidBody.ApplyForce(dir, Vector3.Zero);
     }
 
-    public Vector3 GetPosition()
+    public new Vector3 GetPosition()
     {
         return _RigidBody.Position;
     }
 
-    public void SetPosition(Vector3 newPos)
+    public new void SetPosition(Vector3 newPos)
     {
         _RigidBody.Position = newPos;
     }
 
-    public string ToString()
+    public new string ToString()
     {
         return _RigidBody.LinearVelocity.ToString();
     }

@@ -1,19 +1,19 @@
-[gd_scene load_steps=6 format=3 uid="uid://bjn7smkl2qxwq"]
+[gd_scene load_steps=7 format=3 uid="uid://bjn7smkl2qxwq"]
 
+[ext_resource type="Script" uid="uid://glo2xqexgqo" path="res://Code/Fundamentals/Player.cs" id="1_6t5aa"]
 [ext_resource type="PackedScene" uid="uid://bq730q2f7vhto" path="res://Scenes/Fundamentals/collision_body.tscn" id="2_vh2ay"]
 [ext_resource type="PackedScene" uid="uid://cpo5is4364vux" path="res://Scenes/Fundamentals/Rigid_Body.tscn" id="3_kgynb"]
-
-[sub_resource type="Resource" id="Resource_cvnsp"]
-metadata/__load_path__ = "res://Code/Player.cs"
+[ext_resource type="Script" uid="uid://d13c27iqrhrii" path="res://Code/Fundamentals/Rigid_Body.cs" id="3_vgqql"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_30kim"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_nbcc7"]
 
 [node name="Player" type="Node3D"]
-script = SubResource("Resource_cvnsp")
+script = ExtResource("1_6t5aa")
 
 [node name="Rigid_Body" parent="." instance=ExtResource("3_kgynb")]
+script = ExtResource("3_vgqql")
 
 [node name="RigidBody3D" parent="Rigid_Body" index="0"]
 axis_lock_angular_x = true
