@@ -14,6 +14,9 @@ public partial class Cannon : Node
     {
         var otherRoot = Tools.GetRoot<Item>(other);
 
+        if (otherRoot == null)
+            return;
+
         otherRoot.QueueFree();
 
         _AnimationPlayer.Play("Kaboom");

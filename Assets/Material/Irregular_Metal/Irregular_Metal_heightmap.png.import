@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://od3iw1bd4n41"
-path.s3tc="res://.godot/imported/Irregular_Metal_heightmap.png-1a687a151f4ce79fd5e35e735aadfb08.s3tc.ctex"
+path.s3tc="res://.godot/imported/Irregular_Metal_heightmap.png-337fda82278b91c6479c08b913cbe4c2.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Assets/Material/Irregular_Metal/Irregular_Metal_heightmap.png"
-dest_files=["res://.godot/imported/Irregular_Metal_heightmap.png-1a687a151f4ce79fd5e35e735aadfb08.s3tc.ctex"]
+source_file="res://ASSETS/Material/Irregular_Metal/Irregular_Metal_heightmap.png"
+dest_files=["res://.godot/imported/Irregular_Metal_heightmap.png-337fda82278b91c6479c08b913cbe4c2.s3tc.ctex"]
 
 [params]
 

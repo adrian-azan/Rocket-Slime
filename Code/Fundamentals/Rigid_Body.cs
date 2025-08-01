@@ -3,11 +3,10 @@ using Godot.Collections;
 using System;
 using System.Linq;
 
-public partial class Rigid_Body : Node3D
+public partial class Rigid_Body : RigidBody3D
 {
     private Dictionary<Node3D, Vector3> _ChildrenAndPos;
 
-    private RigidBody3D _RigidBody;
     private Collision_Body _Area;
 
     public override void _Ready()
@@ -22,11 +21,6 @@ public partial class Rigid_Body : Node3D
                 _ChildrenAndPos.Add(child, child.Position);
             }
 
-            if (child is RigidBody3D)
-            {
-                _RigidBody = child as RigidBody3D;
-            }
-
             if (child is Collision_Body)
             {
                 _Area = child as Collision_Body;
@@ -38,10 +32,7 @@ public partial class Rigid_Body : Node3D
     {
         foreach (var child in _ChildrenAndPos)
         {
-            if (child.Key != _RigidBody)
-            {
-                child.Key.GlobalPosition = _RigidBody.GlobalPosition + _ChildrenAndPos[child.Key];
-            }
+            child.Key.GlobalPosition = GlobalPosition + _ChildrenAndPos[child.Key];
         }
     }
 
@@ -73,7 +64,8 @@ public partial class Rigid_Body : Node3D
 
         _ChildrenAndPos.Remove(child);
         var rb = Tools.FindRigidBodyFromRoot(child);
-        rb.Enable();
+        rb.ProcessMode = ProcessModeEnum.Inherit;
+        rb.Sleeping = false;
     }
 
     public uint ChildrenSize()
@@ -83,50 +75,50 @@ public partial class Rigid_Body : Node3D
 
     public void CollisionLayer(uint layer)
     {
-        _RigidBody.CollisionLayer = layer;
+        CollisionLayer(layer);
     }
 
     public void CollisionMask(uint mask)
     {
-        _RigidBody.CollisionMask = mask;
+        CollisionMask(mask);
     }
 
     public void Disable()
     {
-        _RigidBody.ProcessMode = ProcessModeEnum.Disabled;
-        _RigidBody.Sleeping = true;
-        _Area.ProcessMode = ProcessModeEnum.Disabled;
+        ProcessMode = ProcessModeEnum.Disabled;
+        Sleeping = true;
+        //_Area.ProcessMode = ProcessModeEnum.Disabled;
     }
 
     public void Enable()
     {
-        _RigidBody.ProcessMode = ProcessModeEnum.Inherit;
-        _RigidBody.Sleeping = false;
-        _Area.ProcessMode = ProcessModeEnum.Inherit;
+        ProcessMode = ProcessModeEnum.Inherit;
+        Sleeping = false;
+        //_Area.ProcessMode = ProcessModeEnum.Inherit;
     }
 
     public void AddImpulse(Vector3 dir)
     {
-        _RigidBody.ApplyImpulse(dir, Vector3.Zero);
+        ApplyImpulse(dir, Vector3.Zero);
     }
 
     public void AddForce(Vector3 dir)
     {
-        _RigidBody.ApplyForce(dir, Vector3.Zero);
+        ApplyForce(dir, Vector3.Zero);
     }
 
     public new Vector3 GetPosition()
     {
-        return _RigidBody.Position;
+        return Position;
     }
 
     public new void SetPosition(Vector3 newPos)
     {
-        _RigidBody.Position = newPos;
+        Position = newPos;
     }
 
     public new string ToString()
     {
-        return _RigidBody.LinearVelocity.ToString();
+        return LinearVelocity.ToString();
     }
 }

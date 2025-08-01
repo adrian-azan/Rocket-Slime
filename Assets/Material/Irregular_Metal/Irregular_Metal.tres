@@ -1,10 +1,10 @@
 [gd_resource type="StandardMaterial3D" load_steps=6 format=3 uid="uid://c3c6804g0cnm0"]
 
-[ext_resource type="Texture2D" uid="uid://d3h53jm72x6j5" path="res://Assets/Material/Irregular_Metal/Irregular_Metal_albedo.png" id="1"]
-[ext_resource type="Texture2D" uid="uid://c6shi1iwhs1aj" path="res://Assets/Material/Irregular_Metal/Irregular_Metal_orm.png" id="2"]
-[ext_resource type="Texture2D" uid="uid://bq6nke4o5od60" path="res://Assets/Material/Irregular_Metal/Irregular_Metal_normal.png" id="3"]
-[ext_resource type="Texture2D" uid="uid://od3iw1bd4n41" path="res://Assets/Material/Irregular_Metal/Irregular_Metal_heightmap.png" id="4"]
-[ext_resource type="Texture2D" uid="uid://dhsetm3vbt561" path="res://Assets/Material/Irregular_Metal/Irregular_Metal_emission.png" id="5"]
+[ext_resource type="Texture2D" uid="uid://d3h53jm72x6j5" path="res://ASSETS/Material/Irregular_Metal/Irregular_Metal_albedo.png" id="1"]
+[ext_resource type="Texture2D" uid="uid://c6shi1iwhs1aj" path="res://ASSETS/Material/Irregular_Metal/Irregular_Metal_orm.png" id="2"]
+[ext_resource type="Texture2D" uid="uid://bq6nke4o5od60" path="res://ASSETS/Material/Irregular_Metal/Irregular_Metal_normal.png" id="3"]
+[ext_resource type="Texture2D" uid="uid://od3iw1bd4n41" path="res://ASSETS/Material/Irregular_Metal/Irregular_Metal_heightmap.png" id="4"]
+[ext_resource type="Texture2D" uid="uid://dhsetm3vbt561" path="res://ASSETS/Material/Irregular_Metal/Irregular_Metal_emission.png" id="5"]
 
 [resource]
 albedo_texture = ExtResource("1")

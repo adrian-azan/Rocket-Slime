@@ -5,8 +5,7 @@ using System.Reflection.Metadata.Ecma335;
 
 public partial class Player : Node3D
 {
-    private RigidBody3D _rigidBody;
-    private Rigid_Body _RigidBody;
+    public Rigid_Body _RigidBody;
     private float _acceleration = 50f;
     private float _speed = 4f;
 
@@ -55,19 +54,18 @@ public partial class Player : Node3D
             }
         }
 
-        _rigidBody.ApplyCentralForce(velocity);
-        _rigidBody.LinearVelocity = _rigidBody.LinearVelocity.LimitLength(_speed);
+        _RigidBody.ApplyCentralForce(velocity);
+        _RigidBody.LinearVelocity = _RigidBody.LinearVelocity.LimitLength(_speed);
 
         if (Input.IsActionJustPressed("Throw"))
         {
-            Throw(_rigidBody.LinearVelocity.LimitLength(1));
+            Throw(_RigidBody.LinearVelocity.LimitLength(1));
         }
     }
 
     public override void _Ready()
     {
-        _rigidBody = GetNode<RigidBody3D>("Rigid_Body/RigidBody3D");
-        _RigidBody = GetNode<Rigid_Body>("Rigid_Body");
+        _RigidBody = GetNode<Rigid_Body>("RigidBody3D");
 
         _Items = new Stack<Node3D>();
         _Prepared = true;
@@ -84,17 +82,19 @@ public partial class Player : Node3D
         }
     }
 
-    public void Pickup(Node3D other)
+    public void Pickup(Node other)
     {
-        var target = Tools.GetRoot(other) as Item;
+        var target = Tools.GetRoot<Item>(other);
 
-        if (target is Item && _RigidBody.ChildrenSize() - 2 <= 3)
+        if (target is Item && _RigidBody.ChildrenSize() - 3 <= 3)
         {
             var t = target as Item;
-            _RigidBody.AddChild(t, Vector3.Up * (_RigidBody.ChildrenSize() - 1));
+            _RigidBody.AddChild(t, Vector3.Up * (_RigidBody.ChildrenSize() - 2));
             _Items.Push(t);
-            t._RigidBody.Disable();
-            t._CollisionBody.Disable();
+
+            var t_rigid = t.GetNode<Rigid_Body>("RigidBody3D");
+            t_rigid.Disable();
+
             t._AnimationPlayer.Play("Bounce");
         }
     }

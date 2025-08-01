@@ -1,11 +1,11 @@
 [gd_scene load_steps=5 format=3 uid="uid://dpbdc50rn20hj"]
 
-[ext_resource type="PackedScene" uid="uid://dcoewes73mwo2" path="res://Assets/Models/Rooms/Chute.gltf" id="1_3g54e"]
+[ext_resource type="PackedScene" uid="uid://dcoewes73mwo2" path="res://ASSETS/Models/Rooms/Chute.gltf" id="1_3g54e"]
 [ext_resource type="Script" uid="uid://cukdsb2op68ax" path="res://Code/Chute.cs" id="1_dskag"]
-[ext_resource type="Material" uid="uid://dx8gyr0mw8nwr" path="res://Assets/Material/Metal/Metal.tres" id="2_n84tc"]
-[ext_resource type="PackedScene" uid="uid://1ymcb1obn72s" path="res://Scenes/CannonBall.tscn" id="2_xq7hc"]
+[ext_resource type="Material" uid="uid://dx8gyr0mw8nwr" path="res://ASSETS/Material/Metal/Metal.tres" id="2_n84tc"]
+[ext_resource type="PackedScene" uid="uid://1ymcb1obn72s" path="res://Scenes/ITEMS/CannonBall.tscn" id="2_xq7hc"]
 
-[node name="Chute" type="Node3D"]
+[node name="Chute" type="Node3D" groups=["Chute"]]
 script = ExtResource("1_dskag")
 _Item = ExtResource("2_xq7hc")
 
@@ -17,5 +17,11 @@ surface_material_override/0 = ExtResource("2_n84tc")
 
 [node name="Cylinder_001" parent="Chute" index="1"]
 surface_material_override/0 = ExtResource("2_n84tc")
+
+[node name="Reload Time" type="Timer" parent="."]
+wait_time = 2.0
+autostart = true
+
+[connection signal="timeout" from="Reload Time" to="." method="SpawnItem"]
 
 [editable path="Chute"]

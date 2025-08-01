@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://dfgdxhqjg4le8"]
 
-[ext_resource type="PackedScene" uid="uid://2yiw5jm7yi06" path="res://Assets/Models/Rooms/Upper_Room.gltf" id="1_kchdy"]
-[ext_resource type="Material" uid="uid://b02xxqtyj0yis" path="res://Assets/Material/Wood Plank/wood_planks.tres" id="2_o13lt"]
+[ext_resource type="PackedScene" uid="uid://2yiw5jm7yi06" path="res://ASSETS/Models/Rooms/Upper_Room.gltf" id="1_kchdy"]
+[ext_resource type="Material" uid="uid://b02xxqtyj0yis" path="res://ASSETS/Material/Wood Plank/wood_planks.tres" id="2_o13lt"]
 [ext_resource type="PackedScene" uid="uid://dpbdc50rn20hj" path="res://Scenes/Chute.tscn" id="3_lr1ie"]
 [ext_resource type="PackedScene" uid="uid://lfx6gfr2tasr" path="res://Scenes/Cannon-Upper.tscn" id="4_rmq8t"]
 

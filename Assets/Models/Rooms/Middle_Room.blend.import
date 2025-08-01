@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://i51x02vtgoj8"
-path="res://.godot/imported/Middle_Room.blend-7ace94c3d7bfbf5b2a51eab1612cb7d9.scn"
+path="res://.godot/imported/Middle_Room.blend-1de6ec336abe94f0a8ce78c9d62b46fc.scn"
 
 [deps]
 
-source_file="res://Assets/Models/Rooms/Middle_Room.blend"
-dest_files=["res://.godot/imported/Middle_Room.blend-7ace94c3d7bfbf5b2a51eab1612cb7d9.scn"]
+source_file="res://ASSETS/Models/Rooms/Middle_Room.blend"
+dest_files=["res://.godot/imported/Middle_Room.blend-1de6ec336abe94f0a8ce78c9d62b46fc.scn"]
 
 [params]
 

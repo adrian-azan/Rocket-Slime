@@ -15,7 +15,7 @@ public static class Tools
 
     public static Node GetRoot<T>(Node Source)
     {
-        if (Source == null)
+        if (Source == null || (Source.Owner == null && Source is not T))
             return null;
 
         if (Source.Owner == null || Source is T)
@@ -70,14 +70,14 @@ public static class Tools
         return childrenOfType;
     }
 
-    public static Rigid_Body FindRigidBody(Node Source)
+    public static RigidBody3D FindRigidBody(Node Source)
     {
         var children = Source.GetChildren();
         foreach (Node child in children)
         {
-            if (child is Rigid_Body)
+            if (child is RigidBody3D)
             {
-                return (Rigid_Body)child;
+                return (RigidBody3D)child;
             }
             else
             {
@@ -88,7 +88,7 @@ public static class Tools
         return null;
     }
 
-    public static Rigid_Body FindRigidBodyFromRoot(Node Source)
+    public static RigidBody3D FindRigidBodyFromRoot(Node Source)
     {
         return FindRigidBody(Source.Owner == null ? Source : Source.Owner);
     }
@@ -115,6 +115,14 @@ public static class Tools
         var distanceY = Mathf.Abs(pointY - y);
 
         return Mathf.Sqrt(Mathf.Pow(distanceX, 2) + Mathf.Pow(distanceY, 2));
+    }
+
+    public static float distanceFromPointFlat(Vector3 one, Vector3 two)
+    {
+        one.Y = 0;
+        two.Y = 0;
+
+        return one.DistanceTo(two);
     }
 
     //File Tools

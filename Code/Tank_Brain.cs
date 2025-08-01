@@ -1,21 +1,67 @@
 using Godot;
-using System;
-using System.Collections;
+using Godot.Collections;
 
 public partial class Tank_Brain : Node3D
 {
-    private ArrayList _Chutes;
+    private Array<Node> _Chutes;
+    private Array<Path3D> _Paths;
 
     private bool fire = true;
 
-    // Called when the node enters the scene tree for the first time.
     public override void _Ready()
     {
-        _Chutes = new ArrayList();
-        FindNodes("./", 0);
+        _Chutes = GetTree().GetNodesInGroup("Chute");
+        _Paths = Tools.GetChildren<Path3D>(this);
+        Array<Vector3> points = new Array<Vector3>();
+
+        foreach (var path in _Paths)
+        {
+            for (int i = 0; i < path.Curve.PointCount; i++)
+            {
+                var first = path.Curve.Sample(i, .5f);
+                GD.Print($"{i} {first}");
+                first.X += Tools.rng.RandfRange(-1f, 1f);
+                first.Z += Tools.rng.RandfRange(-1f, 1f);
+
+                points.Add(first);
+            }
+
+            GD.Print("\n\n");
+
+            for (int i = 0; i < path.Curve.PointCount; i++)
+            {
+                GD.Print($"{i} {path.Curve.GetPointPosition(i)}");
+            }
+            GD.Print("\n\n");
+
+            int j = 1;
+            for (int i = 0; i < points.Count; i++)
+            {
+                path.Curve.AddPoint(points[i], null, null, j);
+                j += 2;
+            }
+            GD.Print("\n\n");
+
+            for (int i = 0; i < path.Curve.PointCount; i++)
+            {
+                GD.Print($"{i} {path.Curve.GetPointPosition(i)}");
+            }
+            GD.Print("\n\n");
+
+            var visual = ResourceLoader.Load("res://Scenes/PathVisual.tscn") as PackedScene;
+
+            for (float i = 0; i < 400; i++)
+            {
+                var test = visual.Instantiate<PathFollow3D>();
+                path.AddChild(test);
+
+                test.ProgressRatio = i / 400;
+            }
+
+            points.Clear();
+        }
     }
 
-    // Called every frame. 'delta' is the elapsed time since the previous frame.
     public override void _Process(double delta)
     {
         if (fire)
@@ -24,32 +70,10 @@ public partial class Tank_Brain : Node3D
             {
                 if (chute._Prepared)
                 {
-                    chute.SpawnItem();
+                    //          chute.SpawnItem();
                 }
                 fire = false;
             }
-        }
-    }
-
-    public void FindNodes(string path, int limit)
-    {
-        var root = GetNode(path);
-        var nodes = root.GetChildren();
-        if (limit >= 6 || nodes.Count == 0)
-        {
-            return;
-        }
-
-        foreach (var node in nodes)
-        {
-            var chute = node.GetNodeOrNull<Chute>(path);
-            string name = node.Name.ToString();
-            if (node is Chute)
-            {
-                _Chutes.Add(node);
-            }
-
-            FindNodes(path + "/" + node.Name, limit + 1);
         }
     }
 }

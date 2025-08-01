@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://bq730q2f7vhto"]
+[gd_scene load_steps=5 format=3 uid="uid://cdb3nh0qmc2t4"]
 
 [ext_resource type="Script" uid="uid://cv7mx3s5e306r" path="res://Code/Fundamentals/Collision_Body.cs" id="1_s15mj"]
 

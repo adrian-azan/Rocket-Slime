@@ -11,7 +11,7 @@ public partial class promptable : Node3D
     public Node3D _Accent;
 
     private bool _isBeingPercieved = false;
-    private Rigid_Body _rb;
+    private RigidBody3D _rb;
 
     private Area3D _Area;
 

@@ -7,15 +7,10 @@ public partial class Collision_Body : Node3D
 
     private bool _isBeingPercieved = false;
     private Rigid_Body _rb;
-    private Area3D _Area;
+    public Area3D _Area;
 
     public override void _Ready()
     {
-        _rb = Tools.FindRigidBodyFromRoot(this);
-        if (_rb == null)
-        {
-            GD.Print(ToString() + " has no rigid body");
-        }
         _Area = GetNodeOrNull<Area3D>("Area3D");
     }
 

@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://biwwuf40kh1vr"
-path="res://.godot/imported/together.blend-eb397bada3c5865c1f89b7fdf3a88f79.scn"
+path="res://.godot/imported/together.blend-d69ee20356d62c6e23b9c2dafcd9ddb3.scn"
 
 [deps]
 
-source_file="res://Assets/Models/Rooms/together.blend"
-dest_files=["res://.godot/imported/together.blend-eb397bada3c5865c1f89b7fdf3a88f79.scn"]
+source_file="res://ASSETS/Models/Rooms/together.blend"
+dest_files=["res://.godot/imported/together.blend-d69ee20356d62c6e23b9c2dafcd9ddb3.scn"]
 
 [params]
 

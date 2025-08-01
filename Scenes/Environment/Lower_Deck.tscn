@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://cwnrrijda1co6"]
 
-[ext_resource type="PackedScene" uid="uid://db4wagmehfi8q" path="res://Assets/Models/Rooms/Lower_Room.gltf" id="1_5qvvq"]
-[ext_resource type="Material" uid="uid://b02xxqtyj0yis" path="res://Assets/Material/Wood Plank/wood_planks.tres" id="2_4l84v"]
+[ext_resource type="PackedScene" uid="uid://db4wagmehfi8q" path="res://ASSETS/Models/Rooms/Lower_Room.gltf" id="1_5qvvq"]
+[ext_resource type="Material" uid="uid://b02xxqtyj0yis" path="res://ASSETS/Material/Wood Plank/wood_planks.tres" id="2_4l84v"]
 [ext_resource type="PackedScene" uid="uid://dpbdc50rn20hj" path="res://Scenes/Chute.tscn" id="3_0atcd"]
 
 [node name="Lower_Deck" type="Node3D"]
