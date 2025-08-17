@@ -48,7 +48,7 @@ public partial class Tank_Brain : Node3D
             }
             GD.Print("\n\n");
 
-            var visual = ResourceLoader.Load("res://Scenes/PathVisual.tscn") as PackedScene;
+            var visual = ResourceLoader.Load("res://Scenes/Environment/Tank Pieces/PathVisual.tscn") as PackedScene;
 
             for (float i = 0; i < 400; i++)
             {

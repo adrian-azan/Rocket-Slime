@@ -13,13 +13,13 @@ public static class Tools
         return GetRoot(Source.Owner);
     }
 
-    public static Node GetRoot<T>(Node Source)
+    public static T GetRoot<[MustBeVariant] T>(Node Source) where T : Node
     {
         if (Source == null || (Source.Owner == null && Source is not T))
             return null;
 
         if (Source.Owner == null || Source is T)
-            return Source;
+            return Source as T;
         return GetRoot<T>(Source.Owner);
     }
 
@@ -117,7 +117,7 @@ public static class Tools
         return Mathf.Sqrt(Mathf.Pow(distanceX, 2) + Mathf.Pow(distanceY, 2));
     }
 
-    public static float distanceFromPointFlat(Vector3 one, Vector3 two)
+    public static float distanceFromPointFlat(Vector3 one, Vector3 two, int round = 1)
     {
         one.Y = 0;
         two.Y = 0;

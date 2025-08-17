@@ -10,8 +10,45 @@ public partial class Player : Node3D
     private float _speed = 4f;
 
     private Stack<Node3D> _Items;
+    public int _followerCount = 0;
+
+    [ExportGroup("Debug")]
+    [Export]
+    private int SPANW_RADIUS;
 
     public bool _Prepared { get; private set; }
+
+    public override void _Ready()
+    {
+        _RigidBody = GetNode<Rigid_Body>("RigidBody3D");
+
+        _Items = new Stack<Node3D>();
+        _Prepared = true;
+    }
+
+    public override void _Process(double delta)
+    {
+        if (Input.IsActionJustPressed("SPAWN_BUDDY"))
+        {
+            SpawnBuddy();
+        }
+
+        if (Input.IsActionPressed("SPAWN_BUDDY_RAPID"))
+        {
+            SpawnBuddy();
+        }
+
+        GetNode<Label3D>("RigidBody3D/Label3D").Text = _followerCount.ToString();
+    }
+
+    public void SpawnBuddy()
+    {
+        var buddy = ResourceLoader.Load<PackedScene>("res://Scenes/NPC/Lil_Dude.tscn").Instantiate() as LilBuddy;
+        AddChild(buddy);
+
+        buddy.GlobalPosition = GlobalPosition + new Vector3(Tools.rng.RandfRange(-SPANW_RADIUS, SPANW_RADIUS), 0, Tools.rng.RandfRange(-SPANW_RADIUS, SPANW_RADIUS));
+        buddy._Follow = this;
+    }
 
     public override void _PhysicsProcess(double delta)
     {
@@ -61,14 +98,6 @@ public partial class Player : Node3D
         {
             Throw(_RigidBody.LinearVelocity.LimitLength(1));
         }
-    }
-
-    public override void _Ready()
-    {
-        _RigidBody = GetNode<Rigid_Body>("RigidBody3D");
-
-        _Items = new Stack<Node3D>();
-        _Prepared = true;
     }
 
     public void Throw(Vector3 Direction)
@@ -131,5 +160,21 @@ public partial class Player : Node3D
                 }
             }
         }
+    }
+
+    public void addBuddy(Area3D area)
+    {
+        if (Tools.GetRoot<LilBuddy>(area) == null)
+            return;
+
+        _followerCount += 1;
+    }
+
+    public void removeBuddy(Area3D area)
+    {
+        if (Tools.GetRoot<LilBuddy>(area) == null)
+            return;
+
+        _followerCount -= 1;
     }
 }

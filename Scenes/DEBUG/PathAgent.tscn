@@ -1,0 +1,42 @@
+[gd_scene load_steps=5 format=3 uid="uid://bf6nv3jsacv0o"]
+
+[ext_resource type="Material" uid="uid://dx8gyr0mw8nwr" path="res://ASSETS/Material/Metal/Metal.tres" id="1_mli25"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_5w6vg"]
+material = ExtResource("1_mli25")
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_k0gfq"]
+
+[sub_resource type="Curve3D" id="Curve3D_mli25"]
+closed = true
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 1.5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1.5, 0, 0, 0, 0, 0, 0, -1.5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -1.5),
+"tilts": PackedFloat32Array(0, 0, 0, 0)
+}
+point_count = 4
+
+[node name="PathAgent" type="PathFollow3D"]
+rotation_mode = 0
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.275, 0, 0, 0, 0.275, 0, 0, 0, 0.275, 0, 0.59, 0)
+mesh = SubResource("SphereMesh_5w6vg")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.155, 0, 0, 0, 0.27, 0, 0, 0, 0.155, 0, 0.295, 0)
+mesh = SubResource("CylinderMesh_k0gfq")
+
+[node name="Path3D" type="Path3D" parent="."]
+curve = SubResource("Curve3D_mli25")
+
+[node name="Node3D" type="PathFollow3D" parent="Path3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 0, 0)
+rotation_mode = 0
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Path3D/Node3D"]
+transform = Transform3D(0.085, 0, 0, 0, 0.085, 0, 0, 0, 0.085, 0, 0.59, 0.750048)
+mesh = SubResource("SphereMesh_5w6vg")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Path3D/Node3D"]
+transform = Transform3D(0.085, 0, 0, 0, 0.085, 0, 0, 0, 0.085, 0, 0.451794, 0.750048)
+mesh = SubResource("CylinderMesh_k0gfq")

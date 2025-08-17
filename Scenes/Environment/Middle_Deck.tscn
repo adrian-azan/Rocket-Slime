@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://dixbdwfiir12k"]
+[gd_scene load_steps=5 format=3 uid="uid://dixbdwfiir12k"]
 
 [ext_resource type="PackedScene" uid="uid://br81ua6hmeq5a" path="res://ASSETS/Models/Rooms/Middle_Room.gltf" id="1_h0pcw"]
 [ext_resource type="Material" uid="uid://b02xxqtyj0yis" path="res://ASSETS/Material/Wood Plank/wood_planks.tres" id="2_k4xou"]
-[ext_resource type="PackedScene" uid="uid://dpbdc50rn20hj" path="res://Scenes/Chute.tscn" id="3_cnbn1"]
+[ext_resource type="PackedScene" uid="uid://dpbdc50rn20hj" path="res://Scenes/Environment/Tank Pieces/Chute.tscn" id="3_cnbn1"]
+[ext_resource type="PackedScene" uid="uid://b8xjneu8d0sbf" path="res://Scenes/ITEMS/Coal.tscn" id="4_u61ly"]
 
 [node name="Middle_Deck" type="Node3D"]
 
@@ -14,8 +15,12 @@ surface_material_override/0 = ExtResource("2_k4xou")
 
 [node name="Chute" parent="." instance=ExtResource("3_cnbn1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.23454, 1.1136, -5.01544)
+_Item = ExtResource("4_u61ly")
+ON = true
 
 [node name="Chute2" parent="." instance=ExtResource("3_cnbn1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.27146, 1.11034, 9.22721)
+_Item = ExtResource("4_u61ly")
+ON = true
 
 [editable path="Middle_Room"]

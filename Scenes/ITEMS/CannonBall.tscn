@@ -21,7 +21,7 @@ _data = {
 script = ExtResource("1_2kl84")
 
 [node name="RigidBody3D" type="RigidBody3D" parent="."]
-collision_layer = 512
+collision_layer = 514
 collision_mask = 2
 script = ExtResource("2_fqc0n")
 

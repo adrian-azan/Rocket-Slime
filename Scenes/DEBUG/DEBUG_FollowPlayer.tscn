@@ -1,0 +1,211 @@
+[gd_scene load_steps=5 format=3 uid="uid://b70kk3fk54j2f"]
+
+[ext_resource type="PackedScene" uid="uid://b1ctqfv8kafn8" path="res://Scenes/Fundamentals/Static_Body.tscn" id="1_tvady"]
+[ext_resource type="Material" uid="uid://b02xxqtyj0yis" path="res://ASSETS/Material/Wood Plank/wood_planks.tres" id="2_qng1e"]
+[ext_resource type="PackedScene" uid="uid://bjn7smkl2qxwq" path="res://Scenes/NPC/player.tscn" id="3_qng1e"]
+[ext_resource type="PackedScene" uid="uid://du6ng5x6488aq" path="res://Scenes/NPC/Lil_Dude.tscn" id="4_of1gj"]
+
+[node name="DebugFollowPlayer" type="Node3D"]
+
+[node name="Static_Body" parent="." instance=ExtResource("1_tvady")]
+transform = Transform3D(32.64, 0, 0, 0, 1.115, 0, 0, 0, 12.861, 0, 0, 0)
+
+[node name="MeshInstance3D" parent="Static_Body/StaticBody3D" index="1"]
+surface_material_override/0 = ExtResource("2_qng1e")
+
+[node name="Player" parent="." instance=ExtResource("3_qng1e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.08989, 0)
+
+[node name="LilDude" parent="." node_paths=PackedStringArray("_Follow") instance=ExtResource("4_of1gj")]
+transform = Transform3D(0.365, 0, 0, 0, 0.365, 0, 0, 0, 0.365, -4.05453, 1.61362, 0)
+_Follow = NodePath("../Player")
+
+[node name="LilDude2" parent="." node_paths=PackedStringArray("_Follow") instance=ExtResource("4_of1gj")]
+transform = Transform3D(0.365, 0, 0, 0, 0.365, 0, 0, 0, 0.365, 9.18113, 1.61362, 0)
+_Follow = NodePath("../Player")
+
+[node name="LilDude3" parent="." node_paths=PackedStringArray("_Follow") instance=ExtResource("4_of1gj")]
+transform = Transform3D(0.365, 0, 0, 0, 0.365, 0, 0, 0, 0.365, 9.18113, 1.61362, 2.05577)
+_Follow = NodePath("../Player")
+
+[node name="LilDude4" parent="." node_paths=PackedStringArray("_Follow") instance=ExtResource("4_of1gj")]
+transform = Transform3D(0.365, 0, 0, 0, 0.365, 0, 0, 0, 0.365, -8.86456, 1.61362, 2.05577)
+_Follow = NodePath("../Player")
+
+[node name="LilDude5" parent="." node_paths=PackedStringArray("_Follow") instance=ExtResource("4_of1gj")]
+transform = Transform3D(0.365, 0, 0, 0, 0.365, 0, 0, 0, 0.365, -8.86456, 1.61362, 2.05577)
+_Follow = NodePath("../Player")
+
+[node name="LilDude6" parent="." node_paths=PackedStringArray("_Follow") instance=ExtResource("4_of1gj")]
+transform = Transform3D(0.365, 0, 0, 0, 0.365, 0, 0, 0, 0.365, -8.86456, 1.61362, 2.05577)
+_Follow = NodePath("../Player")
+
+[node name="LilDude7" parent="." node_paths=PackedStringArray("_Follow") instance=ExtResource("4_of1gj")]
+transform = Transform3D(0.365, 0, 0, 0, 0.365, 0, 0, 0, 0.365, -8.86456, 1.61362, 2.05577)
+_Follow = NodePath("../Player")
+
+[node name="LilDude8" parent="." node_paths=PackedStringArray("_Follow") instance=ExtResource("4_of1gj")]
+transform = Transform3D(0.365, 0, 0, 0, 0.365, 0, 0, 0, 0.365, -8.86456, 1.61362, 2.05577)
+_Follow = NodePath("../Player")
+
+[node name="LilDude9" parent="." node_paths=PackedStringArray("_Follow") instance=ExtResource("4_of1gj")]
+transform = Transform3D(0.365, 0, 0, 0, 0.365, 0, 0, 0, 0.365, -8.86456, 1.61362, 2.05577)
+_Follow = NodePath("../Player")
+
+[node name="LilDude10" parent="." node_paths=PackedStringArray("_Follow") instance=ExtResource("4_of1gj")]
+transform = Transform3D(0.365, 0, 0, 0, 0.365, 0, 0, 0, 0.365, -8.86456, 1.61362, 2.05577)
+_Follow = NodePath("../Player")
+
+[node name="LilDude11" parent="." node_paths=PackedStringArray("_Follow") instance=ExtResource("4_of1gj")]
+transform = Transform3D(0.365, 0, 0, 0, 0.365, 0, 0, 0, 0.365, -8.86456, 1.61362, 2.05577)
+_Follow = NodePath("../Player")
+
+[node name="LilDude12" parent="." node_paths=PackedStringArray("_Follow") instance=ExtResource("4_of1gj")]
+transform = Transform3D(0.365, 0, 0, 0, 0.365, 0, 0, 0, 0.365, -8.86456, 1.61362, 2.05577)
+_Follow = NodePath("../Player")
+
+[node name="LilDude13" parent="." node_paths=PackedStringArray("_Follow") instance=ExtResource("4_of1gj")]
+transform = Transform3D(0.365, 0, 0, 0, 0.365, 0, 0, 0, 0.365, -8.86456, 1.61362, 2.05577)
+_Follow = NodePath("../Player")
+
+[node name="LilDude14" parent="." node_paths=PackedStringArray("_Follow") instance=ExtResource("4_of1gj")]
+transform = Transform3D(0.365, 0, 0, 0, 0.365, 0, 0, 0, 0.365, -8.86456, 1.61362, 2.05577)
+_Follow = NodePath("../Player")
+
+[node name="LilDude15" parent="." node_paths=PackedStringArray("_Follow") instance=ExtResource("4_of1gj")]
+transform = Transform3D(0.365, 0, 0, 0, 0.365, 0, 0, 0, 0.365, -8.86456, 1.61362, 2.05577)
+_Follow = NodePath("../Player")
+
+[node name="LilDude16" parent="." node_paths=PackedStringArray("_Follow") instance=ExtResource("4_of1gj")]
+transform = Transform3D(0.365, 0, 0, 0, 0.365, 0, 0, 0, 0.365, -8.86456, 1.61362, 2.05577)
+_Follow = NodePath("../Player")
+
+[node name="LilDude17" parent="." node_paths=PackedStringArray("_Follow") instance=ExtResource("4_of1gj")]
+transform = Transform3D(0.365, 0, 0, 0, 0.365, 0, 0, 0, 0.365, -8.86456, 1.61362, 2.05577)
+_Follow = NodePath("../Player")
+
+[node name="LilDude18" parent="." node_paths=PackedStringArray("_Follow") instance=ExtResource("4_of1gj")]
+transform = Transform3D(0.365, 0, 0, 0, 0.365, 0, 0, 0, 0.365, -8.86456, 1.61362, 2.05577)
+_Follow = NodePath("../Player")
+
+[node name="LilDude19" parent="." node_paths=PackedStringArray("_Follow") instance=ExtResource("4_of1gj")]
+transform = Transform3D(0.365, 0, 0, 0, 0.365, 0, 0, 0, 0.365, -8.86456, 1.61362, 2.05577)
+_Follow = NodePath("../Player")
+
+[node name="LilDude20" parent="." node_paths=PackedStringArray("_Follow") instance=ExtResource("4_of1gj")]
+transform = Transform3D(0.365, 0, 0, 0, 0.365, 0, 0, 0, 0.365, -8.86456, 1.61362, 2.05577)
+_Follow = NodePath("../Player")
+
+[node name="LilDude21" parent="." node_paths=PackedStringArray("_Follow") instance=ExtResource("4_of1gj")]
+transform = Transform3D(0.365, 0, 0, 0, 0.365, 0, 0, 0, 0.365, -8.86456, 1.61362, 2.05577)
+_Follow = NodePath("../Player")
+
+[node name="LilDude22" parent="." node_paths=PackedStringArray("_Follow") instance=ExtResource("4_of1gj")]
+transform = Transform3D(0.365, 0, 0, 0, 0.365, 0, 0, 0, 0.365, -8.86456, 1.61362, 2.05577)
+_Follow = NodePath("../Player")
+
+[node name="LilDude23" parent="." node_paths=PackedStringArray("_Follow") instance=ExtResource("4_of1gj")]
+transform = Transform3D(0.365, 0, 0, 0, 0.365, 0, 0, 0, 0.365, -8.86456, 1.61362, 2.05577)
+_Follow = NodePath("../Player")
+
+[node name="LilDude24" parent="." node_paths=PackedStringArray("_Follow") instance=ExtResource("4_of1gj")]
+transform = Transform3D(0.365, 0, 0, 0, 0.365, 0, 0, 0, 0.365, -8.86456, 1.61362, 2.05577)
+_Follow = NodePath("../Player")
+
+[node name="LilDude25" parent="." node_paths=PackedStringArray("_Follow") instance=ExtResource("4_of1gj")]
+transform = Transform3D(0.365, 0, 0, 0, 0.365, 0, 0, 0, 0.365, -8.86456, 1.61362, 2.05577)
+_Follow = NodePath("../Player")
+
+[node name="LilDude26" parent="." node_paths=PackedStringArray("_Follow") instance=ExtResource("4_of1gj")]
+transform = Transform3D(0.365, 0, 0, 0, 0.365, 0, 0, 0, 0.365, -8.86456, 1.61362, 2.05577)
+_Follow = NodePath("../Player")
+
+[node name="LilDude27" parent="." node_paths=PackedStringArray("_Follow") instance=ExtResource("4_of1gj")]
+transform = Transform3D(0.365, 0, 0, 0, 0.365, 0, 0, 0, 0.365, -8.86456, 1.61362, 2.05577)
+_Follow = NodePath("../Player")
+
+[node name="LilDude28" parent="." node_paths=PackedStringArray("_Follow") instance=ExtResource("4_of1gj")]
+transform = Transform3D(0.365, 0, 0, 0, 0.365, 0, 0, 0, 0.365, -8.86456, 1.61362, 2.05577)
+_Follow = NodePath("../Player")
+
+[node name="LilDude29" parent="." node_paths=PackedStringArray("_Follow") instance=ExtResource("4_of1gj")]
+transform = Transform3D(0.365, 0, 0, 0, 0.365, 0, 0, 0, 0.365, -8.86456, 1.61362, 2.05577)
+_Follow = NodePath("../Player")
+
+[node name="LilDude30" parent="." node_paths=PackedStringArray("_Follow") instance=ExtResource("4_of1gj")]
+transform = Transform3D(0.365, 0, 0, 0, 0.365, 0, 0, 0, 0.365, -8.86456, 1.61362, 2.05577)
+_Follow = NodePath("../Player")
+
+[node name="LilDude31" parent="." node_paths=PackedStringArray("_Follow") instance=ExtResource("4_of1gj")]
+transform = Transform3D(0.365, 0, 0, 0, 0.365, 0, 0, 0, 0.365, -8.86456, 1.61362, 2.05577)
+_Follow = NodePath("../Player")
+
+[node name="LilDude32" parent="." node_paths=PackedStringArray("_Follow") instance=ExtResource("4_of1gj")]
+transform = Transform3D(0.365, 0, 0, 0, 0.365, 0, 0, 0, 0.365, -8.86456, 1.61362, 2.05577)
+_Follow = NodePath("../Player")
+
+[node name="LilDude33" parent="." node_paths=PackedStringArray("_Follow") instance=ExtResource("4_of1gj")]
+transform = Transform3D(0.365, 0, 0, 0, 0.365, 0, 0, 0, 0.365, -8.86456, 1.61362, 2.05577)
+_Follow = NodePath("../Player")
+
+[node name="LilDude34" parent="." node_paths=PackedStringArray("_Follow") instance=ExtResource("4_of1gj")]
+transform = Transform3D(0.365, 0, 0, 0, 0.365, 0, 0, 0, 0.365, -8.86456, 1.61362, 2.05577)
+_Follow = NodePath("../Player")
+
+[node name="LilDude35" parent="." node_paths=PackedStringArray("_Follow") instance=ExtResource("4_of1gj")]
+transform = Transform3D(0.365, 0, 0, 0, 0.365, 0, 0, 0, 0.365, -8.86456, 1.61362, 2.05577)
+_Follow = NodePath("../Player")
+
+[node name="LilDude36" parent="." node_paths=PackedStringArray("_Follow") instance=ExtResource("4_of1gj")]
+transform = Transform3D(0.365, 0, 0, 0, 0.365, 0, 0, 0, 0.365, -8.86456, 1.61362, 2.05577)
+_Follow = NodePath("../Player")
+
+[node name="LilDude37" parent="." node_paths=PackedStringArray("_Follow") instance=ExtResource("4_of1gj")]
+transform = Transform3D(0.365, 0, 0, 0, 0.365, 0, 0, 0, 0.365, -8.86456, 1.61362, 2.05577)
+_Follow = NodePath("../Player")
+
+[node name="LilDude38" parent="." node_paths=PackedStringArray("_Follow") instance=ExtResource("4_of1gj")]
+transform = Transform3D(0.365, 0, 0, 0, 0.365, 0, 0, 0, 0.365, -8.86456, 1.61362, 2.05577)
+_Follow = NodePath("../Player")
+
+[node name="LilDude39" parent="." node_paths=PackedStringArray("_Follow") instance=ExtResource("4_of1gj")]
+transform = Transform3D(0.365, 0, 0, 0, 0.365, 0, 0, 0, 0.365, -8.86456, 1.61362, 2.05577)
+_Follow = NodePath("../Player")
+
+[node name="LilDude40" parent="." node_paths=PackedStringArray("_Follow") instance=ExtResource("4_of1gj")]
+transform = Transform3D(0.365, 0, 0, 0, 0.365, 0, 0, 0, 0.365, -8.86456, 1.61362, 2.05577)
+_Follow = NodePath("../Player")
+
+[node name="LilDude41" parent="." node_paths=PackedStringArray("_Follow") instance=ExtResource("4_of1gj")]
+transform = Transform3D(0.365, 0, 0, 0, 0.365, 0, 0, 0, 0.365, -8.86456, 1.61362, 2.05577)
+_Follow = NodePath("../Player")
+
+[node name="LilDude42" parent="." node_paths=PackedStringArray("_Follow") instance=ExtResource("4_of1gj")]
+transform = Transform3D(0.365, 0, 0, 0, 0.365, 0, 0, 0, 0.365, -8.86456, 1.61362, 2.05577)
+_Follow = NodePath("../Player")
+
+[node name="LilDude43" parent="." node_paths=PackedStringArray("_Follow") instance=ExtResource("4_of1gj")]
+transform = Transform3D(0.365, 0, 0, 0, 0.365, 0, 0, 0, 0.365, -8.86456, 1.61362, 2.05577)
+_Follow = NodePath("../Player")
+
+[node name="LilDude44" parent="." node_paths=PackedStringArray("_Follow") instance=ExtResource("4_of1gj")]
+transform = Transform3D(0.365, 0, 0, 0, 0.365, 0, 0, 0, 0.365, -8.86456, 1.61362, 2.05577)
+_Follow = NodePath("../Player")
+
+[node name="LilDude45" parent="." node_paths=PackedStringArray("_Follow") instance=ExtResource("4_of1gj")]
+transform = Transform3D(0.365, 0, 0, 0, 0.365, 0, 0, 0, 0.365, -8.86456, 1.61362, 2.05577)
+_Follow = NodePath("../Player")
+
+[node name="LilDude46" parent="." node_paths=PackedStringArray("_Follow") instance=ExtResource("4_of1gj")]
+transform = Transform3D(0.365, 0, 0, 0, 0.365, 0, 0, 0, 0.365, -8.86456, 1.61362, 2.05577)
+_Follow = NodePath("../Player")
+
+[node name="LilDude47" parent="." node_paths=PackedStringArray("_Follow") instance=ExtResource("4_of1gj")]
+transform = Transform3D(0.365, 0, 0, 0, 0.365, 0, 0, 0, 0.365, -8.86456, 1.61362, 2.05577)
+_Follow = NodePath("../Player")
+
+[node name="LilDude48" parent="." node_paths=PackedStringArray("_Follow") instance=ExtResource("4_of1gj")]
+transform = Transform3D(0.365, 0, 0, 0, 0.365, 0, 0, 0, 0.365, -8.86456, 1.61362, 2.05577)
+_Follow = NodePath("../Player")
+
+[editable path="Static_Body"]

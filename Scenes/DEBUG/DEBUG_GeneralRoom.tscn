@@ -1,0 +1,32 @@
+[gd_scene load_steps=6 format=3 uid="uid://58uocq4mcybu"]
+
+[ext_resource type="Script" uid="uid://cf6ov1l64l4ao" path="res://Scenes/DEBUG/DEBUG_CONTROLLER.cs" id="1_n0fkb"]
+[ext_resource type="PackedScene" uid="uid://b1ctqfv8kafn8" path="res://Scenes/Fundamentals/Static_Body.tscn" id="2_8qhuo"]
+[ext_resource type="PackedScene" uid="uid://bjn7smkl2qxwq" path="res://Scenes/NPC/player.tscn" id="3_36vji"]
+[ext_resource type="Texture2D" uid="uid://cmv1khwkbg2pl" path="res://ASSETS/Material/godot-prototype-texture/PNG/checker_512x512/checker_pink_512x512.png" id="3_n0fkb"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_err4j"]
+albedo_texture = ExtResource("3_n0fkb")
+uv1_scale = Vector3(52.585, 87.355, 1)
+
+[node name="Node3D" type="Node3D"]
+script = ExtResource("1_n0fkb")
+
+[node name="Static_Body" parent="." instance=ExtResource("2_8qhuo")]
+transform = Transform3D(69, 0, 0, 0, 1, 0, 0, 0, 159, 0, 0, 0)
+
+[node name="MeshInstance3D" parent="Static_Body/StaticBody3D" index="1"]
+surface_material_override/0 = SubResource("StandardMaterial3D_err4j")
+
+[node name="Player" parent="." instance=ExtResource("3_36vji")]
+transform = Transform3D(0.99926, 0, 0, 0, 0.99926, 0, 0, 0, 0.99926, 0.00224543, 1.60636, 0.0203321)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.71934, -0.592294, 0.362958, 0, 0.522498, 0.85264, -0.694658, -0.613338, 0.375854, 0, 12.8305, 0)
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(-1, -4.37114e-08, 7.57103e-08, 0, 0.866025, 0.5, -8.74228e-08, 0.5, -0.866025, 0.002, 4.92789, -6.3117)
+
+[editable path="Static_Body"]
