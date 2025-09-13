@@ -1,16 +1,18 @@
-[gd_scene load_steps=12 format=3 uid="uid://bjn7smkl2qxwq"]
+[gd_scene load_steps=15 format=3 uid="uid://bjn7smkl2qxwq"]
 
 [ext_resource type="Script" uid="uid://glo2xqexgqo" path="res://Code/Fundamentals/Player.cs" id="1_6t5aa"]
 [ext_resource type="Script" uid="uid://cv7mx3s5e306r" path="res://Code/Fundamentals/Collision_Body.cs" id="3_6t5aa"]
-[ext_resource type="Texture2D" uid="uid://dcwiivigmjh0v" path="res://ASSETS/Material/godot-prototype-texture/PNG/checker_512x512/checker_black_512x512.png" id="3_g74g7"]
+[ext_resource type="Texture2D" uid="uid://cy4dfkeek80em" path="res://ASSETS/Material/godot-prototype-texture/PNG/grid_512x512/grid_black_512x512.png" id="3_h1wd5"]
 [ext_resource type="Script" uid="uid://d13c27iqrhrii" path="res://Code/Fundamentals/Rigid_Body.cs" id="3_vgqql"]
+[ext_resource type="Texture2D" uid="uid://bkycxb67n2w6h" path="res://ASSETS/Material/godot-prototype-texture/PNG/checker_512x512/checker_yellow_512x512.png" id="5_kf43o"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_30kim"]
+radius = 0.05
 
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_nbcc7"]
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_tfe3s"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_h1wd5"]
-albedo_texture = ExtResource("3_g74g7")
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_y7n4o"]
+albedo_texture = ExtResource("3_h1wd5")
 uv1_scale = Vector3(0.25, 0.33, 1)
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_dux1w"]
@@ -22,6 +24,14 @@ transparency = 1
 albedo_color = Color(1, 1, 0.0745098, 0.337255)
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_sji4p"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_tf1ac"]
+radius = 0.25
+height = 0.5
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_h1wd5"]
+albedo_texture = ExtResource("5_kf43o")
+uv1_scale = Vector3(0.25, 0.33, 1)
 
 [node name="Player" type="Node3D"]
 script = ExtResource("1_6t5aa")
@@ -39,9 +49,9 @@ script = ExtResource("3_vgqql")
 shape = SubResource("CapsuleShape3D_30kim")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D"]
-mesh = SubResource("CapsuleMesh_nbcc7")
+mesh = SubResource("CapsuleMesh_tfe3s")
 skeleton = NodePath("")
-surface_material_override/0 = SubResource("StandardMaterial3D_h1wd5")
+surface_material_override/0 = SubResource("StandardMaterial3D_y7n4o")
 
 [node name="Area3D" type="Area3D" parent="RigidBody3D"]
 transform = Transform3D(1.69, 0, 0, 0, 1.69, 0, 0, 0, 1.69, 0, 0, 0)
@@ -77,6 +87,14 @@ visible = false
 pixel_size = 0.015
 billboard = 1
 text = "adfasdf"
+
+[node name="Node3D" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.75103)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Node3D"]
+mesh = SubResource("SphereMesh_tf1ac")
+skeleton = NodePath("")
+surface_material_override/0 = SubResource("StandardMaterial3D_h1wd5")
 
 [connection signal="body_entered" from="RigidBody3D/Area3D" to="." method="Pickup"]
 [connection signal="area_entered" from="RigidBody3D/FollowRadius" to="." method="addBuddy"]

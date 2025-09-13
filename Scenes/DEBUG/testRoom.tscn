@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://nwulkx43meur"]
+[gd_scene load_steps=5 format=3 uid="uid://db874o52esb28"]
 
 [ext_resource type="PackedScene" uid="uid://b1ctqfv8kafn8" path="res://Scenes/Fundamentals/Static_Body.tscn" id="1_tx688"]
 [ext_resource type="Material" uid="uid://b02xxqtyj0yis" path="res://ASSETS/Material/Wood Plank/wood_planks.tres" id="2_7rf5w"]

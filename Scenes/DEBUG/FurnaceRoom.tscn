@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://lks3flmrd7dm"]
+[gd_scene load_steps=15 format=3 uid="uid://30vjt5p1h3ek"]
 
 [ext_resource type="Script" uid="uid://dqrojc5cvj8as" path="res://Code/Tank_Brain.cs" id="1_wy5vy"]
 [ext_resource type="PackedScene" uid="uid://b1ctqfv8kafn8" path="res://Scenes/Fundamentals/Static_Body.tscn" id="2_xm7ie"]
@@ -12,7 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://bp1e5lp1srte2" path="res://Scenes/Environment/ThrowTrigger.tscn" id="11_ooxpr"]
 [ext_resource type="Curve3D" uid="uid://dva3ehdu8ojsb" path="res://Scenes/Environment/Curves/Test Furnace Room Curve 3.tres" id="12_wxq2q"]
 [ext_resource type="Shape3D" uid="uid://c8tpnd0epmsyx" path="res://Scenes/DEBUG/AssignerCollision.tres" id="12_xm7ie"]
-[ext_resource type="Script" uid="uid://chf0h8is8bspm" path="res://Scenes/DEBUG/BuddyAssigner.cs" id="13_xm7ie"]
+[ext_resource type="Script" uid="uid://chf0h8is8bspm" path="res://Code/BuddyAssigner.cs" id="13_xm7ie"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_2m3mh"]
 material = ExtResource("3_2m3mh")
@@ -46,7 +46,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.42844, 0)
 curve = ExtResource("10_42yt7")
 
 [node name="Node3D" parent="Path3D4" instance=ExtResource("11_ooxpr")]
-transform = Transform3D(-1.47307e-07, 0, -0.335, 0, 0.73, 0, 3.37, 0, -1.46433e-08, 3.67312, 0, -0.5)
+transform = Transform3D(1.05442, 0, -0.31818, 0, 0.73, 0, 3.2008, 0, 0.104816, 4.7065, 0, -1.20311)
 progress = 19.6415
 
 [node name="Path3D5" type="Path3D" parent="."]

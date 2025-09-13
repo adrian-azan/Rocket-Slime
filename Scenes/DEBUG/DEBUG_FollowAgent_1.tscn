@@ -1,0 +1,84 @@
+[gd_scene load_steps=12 format=3 uid="uid://ffhlufdxp05d"]
+
+[ext_resource type="Script" uid="uid://cf6ov1l64l4ao" path="res://Code/DEBUG_CONTROLLER.cs" id="1_ig8tf"]
+[ext_resource type="PackedScene" uid="uid://bjn7smkl2qxwq" path="res://Scenes/NPC/player.tscn" id="2_ek4r4"]
+[ext_resource type="PackedScene" uid="uid://b1ctqfv8kafn8" path="res://Scenes/Fundamentals/Static_Body.tscn" id="3_flelx"]
+[ext_resource type="Texture2D" uid="uid://bgnhmcuxdt53e" path="res://ASSETS/Material/godot-prototype-texture/PNG/checker_512x512/checker_lime_512x512.png" id="4_yist8"]
+[ext_resource type="Script" uid="uid://chf0h8is8bspm" path="res://Code/BuddyAssigner.cs" id="5_853av"]
+[ext_resource type="Shape3D" uid="uid://c8tpnd0epmsyx" path="res://Scenes/DEBUG/AssignerCollision.tres" id="6_ldq04"]
+[ext_resource type="Texture2D" uid="uid://cp63ewvh3a4sk" path="res://ASSETS/Material/godot-prototype-texture/PNG/grid_512x512/grid_red_512x512.png" id="7_3gnqy"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_err4j"]
+albedo_texture = ExtResource("4_yist8")
+uv1_scale = Vector3(52.585, 87.355, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jyoep"]
+transparency = 1
+albedo_color = Color(1, 1, 1, 0.67451)
+albedo_texture = ExtResource("7_3gnqy")
+uv1_scale = Vector3(25, 10, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_p8v6m"]
+material = SubResource("StandardMaterial3D_jyoep")
+
+[sub_resource type="Curve3D" id="Curve3D_jg8w5"]
+closed = true
+_data = {
+"points": PackedVector3Array(0, 0, -3, 0, 0, 3, 0, 0, 0, 0, 0, 3, 0, 0, -3, 20, 0, 0),
+"tilts": PackedFloat32Array(0, 0)
+}
+point_count = 2
+
+[node name="Node3D" type="Node3D"]
+script = ExtResource("1_ig8tf")
+
+[node name="Player" parent="." instance=ExtResource("2_ek4r4")]
+transform = Transform3D(0.99926, 0, 0, 0, 0.99926, 0, 0, 0, 0.99926, 0.504822, 1.60636, -20.8281)
+SPANW_RADIUS = 2
+
+[node name="World" type="Node" parent="."]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="World"]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="World"]
+transform = Transform3D(0.71934, -0.592294, 0.362958, 0, 0.522498, 0.852641, -0.694658, -0.613338, 0.375854, 0, 12.8305, 0)
+
+[node name="Static_Body" parent="World" instance=ExtResource("3_flelx")]
+transform = Transform3D(69, 0, 0, 0, 1, 0, 0, 0, 159, 0, 0, 0)
+
+[node name="MeshInstance3D" parent="World/Static_Body/StaticBody3D" index="1"]
+surface_material_override/0 = SubResource("StandardMaterial3D_err4j")
+
+[node name="Camera3D" type="Camera3D" parent="World"]
+transform = Transform3D(-1, -4.37115e-08, 7.57103e-08, 5.93023e-08, 0.297141, 0.954834, -6.42338e-08, 0.954834, -0.297141, 0.002, 17.7033, -17.2812)
+
+[node name="SectionA2" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.01871, 0, -17.5855)
+
+[node name="BuddyAssigner" type="Node3D" parent="SectionA2" node_paths=PackedStringArray("_paths")]
+transform = Transform3D(7.34, 0, 0, 0, 2.845, 0, 0, 0, 6.47, -13.9262, 0, 3.11541)
+script = ExtResource("5_853av")
+_paths = []
+
+[node name="Area3D" type="Area3D" parent="SectionA2/BuddyAssigner"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.801286, 0)
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SectionA2/BuddyAssigner/Area3D"]
+shape = ExtResource("6_ldq04")
+debug_color = Color(0.180392, 0.592157, 0.686275, 0.839216)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="SectionA2/BuddyAssigner/Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.531993, 0)
+mesh = SubResource("BoxMesh_p8v6m")
+
+[node name="Paths" type="Node3D" parent="SectionA2"]
+
+[node name="Path3D4" type="Path3D" parent="SectionA2/Paths"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.9637, 1.42844, 3.59683)
+curve = SubResource("Curve3D_jg8w5")
+
+[connection signal="area_entered" from="SectionA2/BuddyAssigner/Area3D" to="SectionA2/BuddyAssigner" method="Assign"]
+
+[editable path="World/Static_Body"]

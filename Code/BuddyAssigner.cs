@@ -36,7 +36,9 @@ public partial class BuddyAssigner : Node3D
 
         Node3D follow = ResourceLoader.Load<PackedScene>("res://Scenes/DEBUG/PathAgent.tscn").Instantiate() as Node3D;
         _paths.PickRandom().AddChild(follow);
-        (follow as PathFollow3D).ProgressRatio = Tools.rng.Randf();
+
+        (follow as PathFollow3D).ProgressRatio = Tools.rng.RandfRange(-.1f, .1f);
+        (follow as PathFollow3D).GetNode<PathFollow3D>("Path3D/Node3D").ProgressRatio = Tools.rng.RandfRange(0f, .8f);
         buddy._Follow = follow.GetNode<Node3D>("Path3D/Node3D");
 
         _buddies.Add(buddy, follow);

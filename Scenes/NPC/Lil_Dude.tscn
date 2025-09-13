@@ -62,7 +62,7 @@ billboard = 1
 text = "asdfasdf"
 
 [node name="AddBreadCrumb" type="Timer" parent="."]
-wait_time = 0.25
+wait_time = 0.5
 autostart = true
 
 [node name="Impulse" type="Timer" parent="."]

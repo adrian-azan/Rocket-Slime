@@ -1,10 +1,10 @@
 [gd_scene load_steps=15 format=3 uid="uid://c3ho8tc7t5ptp"]
 
-[ext_resource type="Script" uid="uid://cf6ov1l64l4ao" path="res://Scenes/DEBUG/DEBUG_CONTROLLER.cs" id="1_rsy0q"]
+[ext_resource type="Script" uid="uid://cf6ov1l64l4ao" path="res://Code/DEBUG_CONTROLLER.cs" id="1_rsy0q"]
 [ext_resource type="PackedScene" uid="uid://b1ctqfv8kafn8" path="res://Scenes/Fundamentals/Static_Body.tscn" id="2_w7d03"]
 [ext_resource type="Texture2D" uid="uid://bgnhmcuxdt53e" path="res://ASSETS/Material/godot-prototype-texture/PNG/checker_512x512/checker_lime_512x512.png" id="3_rsy0q"]
 [ext_resource type="PackedScene" uid="uid://bjn7smkl2qxwq" path="res://Scenes/NPC/player.tscn" id="4_46c3b"]
-[ext_resource type="Script" uid="uid://chf0h8is8bspm" path="res://Scenes/DEBUG/BuddyAssigner.cs" id="5_jg8w5"]
+[ext_resource type="Script" uid="uid://chf0h8is8bspm" path="res://Code/BuddyAssigner.cs" id="5_jg8w5"]
 [ext_resource type="Shape3D" uid="uid://c8tpnd0epmsyx" path="res://Scenes/DEBUG/AssignerCollision.tres" id="6_jyoep"]
 [ext_resource type="Texture2D" uid="uid://cp63ewvh3a4sk" path="res://ASSETS/Material/godot-prototype-texture/PNG/grid_512x512/grid_red_512x512.png" id="7_jg8w5"]
 [ext_resource type="Curve3D" uid="uid://ybcyqgggo48l" path="res://Scenes/Environment/Curves/Square Curve.tres" id="8_1bb2l"]
@@ -34,7 +34,7 @@ uv1_scale = Vector3(25, 10, 1)
 script = ExtResource("1_rsy0q")
 
 [node name="Player" parent="." instance=ExtResource("4_46c3b")]
-transform = Transform3D(0.99926, 0, 0, 0, 0.99926, 0, 0, 0, 0.99926, 0.00224543, 1.60636, 0.0203321)
+transform = Transform3D(0.99926, 0, 0, 0, 0.99926, 0, 0, 0, 0.99926, 0.504822, 1.60636, 4.5941)
 SPANW_RADIUS = 2
 
 [node name="World" type="Node" parent="."]
@@ -44,16 +44,17 @@ SPANW_RADIUS = 2
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="World"]
 transform = Transform3D(0.71934, -0.592294, 0.362958, 0, 0.522498, 0.852641, -0.694658, -0.613338, 0.375854, 0, 12.8305, 0)
 
-[node name="Camera3D" type="Camera3D" parent="World"]
-transform = Transform3D(-1, -4.37114e-08, 7.57104e-08, 5.93023e-08, 0.297141, 0.954834, -6.42338e-08, 0.954834, -0.297141, 0.002, 17.7033, -5.9271)
-
 [node name="Static_Body" parent="World" instance=ExtResource("2_w7d03")]
 transform = Transform3D(69, 0, 0, 0, 1, 0, 0, 0, 159, 0, 0, 0)
 
 [node name="MeshInstance3D" parent="World/Static_Body/StaticBody3D" index="1"]
 surface_material_override/0 = SubResource("StandardMaterial3D_err4j")
 
+[node name="Camera3D" type="Camera3D" parent="World"]
+transform = Transform3D(-1, -4.37115e-08, 7.57103e-08, 5.93023e-08, 0.297141, 0.954834, -6.42338e-08, 0.954834, -0.297141, 0.002, 17.7033, -17.2812)
+
 [node name="SectionA" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -11.3541)
 
 [node name="BuddyAssigner" type="Node3D" parent="SectionA" node_paths=PackedStringArray("_paths")]
 transform = Transform3D(7.34, 0, 0, 0, 2.845, 0, 0, 0, 6.47, -13.9262, 0, 3.11541)
@@ -75,26 +76,26 @@ mesh = SubResource("BoxMesh_p8v6m")
 
 [node name="Paths" type="Node3D" parent="SectionA"]
 
-[node name="Path3D3" type="Path3D" parent="SectionA/Paths"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.42844, 0)
-curve = ExtResource("8_1bb2l")
-
 [node name="Path3D4" type="Path3D" parent="SectionA/Paths"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.42844, 0)
 curve = ExtResource("9_etetu")
 
-[node name="SectionB" type="Node3D" parent="."]
+[node name="Path3D3" type="Path3D" parent="SectionA/Paths"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.42844, 0)
+curve = ExtResource("8_1bb2l")
+
+[node name="SectionB" type="Node3D" parent="SectionA"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.31144, 0, -8.15907)
 
-[node name="BuddyAssigner" type="Node3D" parent="SectionB" node_paths=PackedStringArray("_paths")]
+[node name="BuddyAssigner" type="Node3D" parent="SectionA/SectionB" node_paths=PackedStringArray("_paths")]
 transform = Transform3D(7.34, 0, 0, 0, 2.845, 0, 0, 0, 6.47, 1.65039, 0, 3.11541)
 script = ExtResource("5_jg8w5")
 _paths = []
 
-[node name="Area3D" type="Node3D" parent="SectionB/BuddyAssigner"]
+[node name="Area3D" type="Node3D" parent="SectionA/SectionB/BuddyAssigner"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.801286, 0)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="SectionB/BuddyAssigner/Area3D"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="SectionA/SectionB/BuddyAssigner/Area3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.531993, 0)
 mesh = SubResource("BoxMesh_p8v6m")
 surface_material_override/0 = SubResource("StandardMaterial3D_67olh")

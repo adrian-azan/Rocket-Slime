@@ -1,9 +1,9 @@
 [gd_scene load_steps=4 format=3 uid="uid://p0fqltbmvbx3"]
 
-[ext_resource type="Material" uid="uid://dx8gyr0mw8nwr" path="res://ASSETS/Material/Metal/Metal.tres" id="1_ann6g"]
+[ext_resource type="Material" uid="uid://dx8gyr0mw8nwr" path="res://ASSETS/Material/Metal/Metal.tres" id="1_qb15a"]
 
 [sub_resource type="SphereMesh" id="SphereMesh_xwcus"]
-material = ExtResource("1_ann6g")
+material = ExtResource("1_qb15a")
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_xwcus"]
 

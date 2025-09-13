@@ -14,7 +14,7 @@
 script = ExtResource("1_hvbwc")
 
 [node name="Player" parent="." instance=ExtResource("2_pg2p6")]
-transform = Transform3D(0.99926, 0, 0, 0, 0.99926, 0, 0, 0, 0.99926, 2.27286, 2.14682, -10.1264)
+transform = Transform3D(0.99926, 0, 0, 0, 0.99926, 0, 0, 0, 0.99926, 2.27286, 1.08336, -10.1264)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_yp2fu")

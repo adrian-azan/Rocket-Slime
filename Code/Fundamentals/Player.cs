@@ -89,6 +89,7 @@ public partial class Player : Node3D
             {
                 item._AnimationPlayer.Play("Bounce");
             }
+            GetNode<Node3D>("Node3D").Position = (_RigidBody.LinearVelocity / 2) + _RigidBody.GlobalPosition;
         }
 
         _RigidBody.ApplyCentralForce(velocity);
