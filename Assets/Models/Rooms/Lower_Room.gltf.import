@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://db4wagmehfi8q"
-path="res://.godot/imported/Lower_Room.gltf-2ec69e506aa0e76ae02b29b22862c7b7.scn"
+path="res://.godot/imported/Lower_Room.gltf-9113a55655bb5c32d9f018c3223313eb.scn"
 
 [deps]
 
-source_file="res://Assets/Models/Rooms/Lower_Room.gltf"
-dest_files=["res://.godot/imported/Lower_Room.gltf-2ec69e506aa0e76ae02b29b22862c7b7.scn"]
+source_file="res://ASSETS/Models/Rooms/Lower_Room.gltf"
+dest_files=["res://.godot/imported/Lower_Room.gltf-9113a55655bb5c32d9f018c3223313eb.scn"]
 
 [params]
 

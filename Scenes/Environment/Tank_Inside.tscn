@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://cwnrrijda1co6" path="res://Scenes/Environment/Lower_Deck.tscn" id="1_axnxj"]
 [ext_resource type="Script" uid="uid://dqrojc5cvj8as" path="res://Code/Tank_Brain.cs" id="1_hvbwc"]
-[ext_resource type="PackedScene" uid="uid://bjn7smkl2qxwq" path="res://Scenes/player.tscn" id="2_pg2p6"]
+[ext_resource type="PackedScene" uid="uid://bjn7smkl2qxwq" path="res://Scenes/NPC/player.tscn" id="2_pg2p6"]
 [ext_resource type="PackedScene" uid="uid://dixbdwfiir12k" path="res://Scenes/Environment/Middle_Deck.tscn" id="3_2bcd7"]
 [ext_resource type="PackedScene" uid="uid://dfgdxhqjg4le8" path="res://Scenes/Environment/Upper_Deck.tscn" id="4_agi1p"]
 
@@ -11,14 +11,10 @@
 [sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_klllt"]
 
 [node name="Tank_Inside" type="Node3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.039463, 9.53674e-07, -0.00148106)
 script = ExtResource("1_hvbwc")
 
-[node name="Lower_Deck" parent="." instance=ExtResource("1_axnxj")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0)
-
 [node name="Player" parent="." instance=ExtResource("2_pg2p6")]
-transform = Transform3D(0.99926, 0, 0, 0, 0.99926, 0, 0, 0, 0.99926, 2.27286, 2.14682, -10.1264)
+transform = Transform3D(0.99926, 0, 0, 0, 0.99926, 0, 0, 0, 0.99926, 2.27286, 1.08336, -10.1264)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_yp2fu")
@@ -26,6 +22,9 @@ camera_attributes = SubResource("CameraAttributesPractical_klllt")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -0.00600386, 0.999982, 0, -0.999982, -0.00600386, 0, 22.142, 0)
+
+[node name="Lower_Deck" parent="." instance=ExtResource("1_axnxj")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0)
 
 [node name="Middle_Deck" parent="." instance=ExtResource("3_2bcd7")]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 15, 0, 3.83)

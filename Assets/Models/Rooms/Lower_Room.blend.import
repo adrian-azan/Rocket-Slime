@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://btnuiq2nllbjx"
-path="res://.godot/imported/Lower_Room.blend-4aae5d16378b9938e7eab4ff41b8c59b.scn"
+path="res://.godot/imported/Lower_Room.blend-9691915765b884ade9458138587f7f08.scn"
 
 [deps]
 
-source_file="res://Assets/Models/Rooms/Lower_Room.blend"
-dest_files=["res://.godot/imported/Lower_Room.blend-4aae5d16378b9938e7eab4ff41b8c59b.scn"]
+source_file="res://ASSETS/Models/Rooms/Lower_Room.blend"
+dest_files=["res://.godot/imported/Lower_Room.blend-9691915765b884ade9458138587f7f08.scn"]
 
 [params]
 

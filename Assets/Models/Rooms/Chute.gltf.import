@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://dcoewes73mwo2"
-path="res://.godot/imported/Chute.gltf-7d4704d886e70d5ebbe61eefe16cf694.scn"
+path="res://.godot/imported/Chute.gltf-8b6b222a12c2e607818197db5ab4a62d.scn"
 
 [deps]
 
-source_file="res://Assets/Models/Rooms/Chute.gltf"
-dest_files=["res://.godot/imported/Chute.gltf-7d4704d886e70d5ebbe61eefe16cf694.scn"]
+source_file="res://ASSETS/Models/Rooms/Chute.gltf"
+dest_files=["res://.godot/imported/Chute.gltf-8b6b222a12c2e607818197db5ab4a62d.scn"]
 
 [params]
 

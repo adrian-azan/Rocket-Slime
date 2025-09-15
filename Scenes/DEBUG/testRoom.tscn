@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://db874o52esb28"]
+
+[ext_resource type="PackedScene" uid="uid://b1ctqfv8kafn8" path="res://Scenes/Fundamentals/Static_Body.tscn" id="1_tx688"]
+[ext_resource type="Material" uid="uid://b02xxqtyj0yis" path="res://ASSETS/Material/Wood Plank/wood_planks.tres" id="2_7rf5w"]
+[ext_resource type="PackedScene" uid="uid://bjn7smkl2qxwq" path="res://Scenes/NPC/player.tscn" id="3_2rnde"]
+[ext_resource type="PackedScene" uid="uid://dpbdc50rn20hj" path="res://Scenes/Environment/Tank Pieces/Chute.tscn" id="4_ef8oo"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="Static_Body" parent="." instance=ExtResource("1_tx688")]
+transform = Transform3D(32.64, 0, 0, 0, 1.115, 0, 0, 0, 12.861, 0, 0, 0)
+
+[node name="MeshInstance3D" parent="Static_Body/StaticBody3D" index="1"]
+surface_material_override/0 = ExtResource("2_7rf5w")
+
+[node name="Player" parent="." instance=ExtResource("3_2rnde")]
+transform = Transform3D(0.99926, 0, 0, 0, 0.99926, 0, 0, 0, 0.99926, 0.00224543, 2.78669, 0.0203321)
+
+[node name="Chute" parent="." instance=ExtResource("4_ef8oo")]
+
+[editable path="Static_Body"]
+[editable path="Player"]

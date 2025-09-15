@@ -1,10 +1,12 @@
 [gd_resource type="StandardMaterial3D" load_steps=4 format=3 uid="uid://b02xxqtyj0yis"]
 
-[ext_resource type="Texture2D" uid="uid://d1a3al2gcs3ev" path="res://Assets/Material/Wood Plank/wood_planks_albedo.png" id="1"]
-[ext_resource type="Texture2D" uid="uid://xna3wkngc6o5" path="res://Assets/Material/Wood Plank/wood_planks_orm.png" id="2"]
-[ext_resource type="Texture2D" uid="uid://dat57hlofpfym" path="res://Assets/Material/Wood Plank/wood_planks_normal.png" id="3"]
+[ext_resource type="Texture2D" uid="uid://d1a3al2gcs3ev" path="res://ASSETS/Material/Wood Plank/wood_planks_albedo.png" id="1"]
+[ext_resource type="Texture2D" uid="uid://xna3wkngc6o5" path="res://ASSETS/Material/Wood Plank/wood_planks_orm.png" id="2"]
+[ext_resource type="Texture2D" uid="uid://dat57hlofpfym" path="res://ASSETS/Material/Wood Plank/wood_planks_normal.png" id="3"]
 
 [resource]
+transparency = 1
+blend_mode = 1
 albedo_texture = ExtResource("1")
 roughness_texture = ExtResource("2")
 roughness_texture_channel = 1

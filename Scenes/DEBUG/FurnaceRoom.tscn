@@ -1,0 +1,77 @@
+[gd_scene load_steps=15 format=3 uid="uid://30vjt5p1h3ek"]
+
+[ext_resource type="Script" uid="uid://dqrojc5cvj8as" path="res://Code/Tank_Brain.cs" id="1_wy5vy"]
+[ext_resource type="PackedScene" uid="uid://b1ctqfv8kafn8" path="res://Scenes/Fundamentals/Static_Body.tscn" id="2_xm7ie"]
+[ext_resource type="Material" uid="uid://b02xxqtyj0yis" path="res://ASSETS/Material/Wood Plank/wood_planks.tres" id="3_2m3mh"]
+[ext_resource type="PackedScene" uid="uid://bjn7smkl2qxwq" path="res://Scenes/NPC/player.tscn" id="4_3ql7q"]
+[ext_resource type="PackedScene" uid="uid://dpbdc50rn20hj" path="res://Scenes/Environment/Tank Pieces/Chute.tscn" id="5_x3v0w"]
+[ext_resource type="PackedScene" uid="uid://b8xjneu8d0sbf" path="res://Scenes/ITEMS/Coal.tscn" id="6_ms5gd"]
+[ext_resource type="PackedScene" uid="uid://lfx6gfr2tasr" path="res://Scenes/Environment/Tank Pieces/Cannon-Upper.tscn" id="7_x324h"]
+[ext_resource type="Curve3D" uid="uid://ybcyqgggo48l" path="res://Scenes/Environment/Curves/Square Curve.tres" id="8_axmxi"]
+[ext_resource type="Curve3D" uid="uid://ctyvkgr5k7gni" path="res://Scenes/Environment/Curves/Test Furnace Room Curve 2.tres" id="10_42yt7"]
+[ext_resource type="PackedScene" uid="uid://bp1e5lp1srte2" path="res://Scenes/Environment/ThrowTrigger.tscn" id="11_ooxpr"]
+[ext_resource type="Curve3D" uid="uid://dva3ehdu8ojsb" path="res://Scenes/Environment/Curves/Test Furnace Room Curve 3.tres" id="12_wxq2q"]
+[ext_resource type="Shape3D" uid="uid://c8tpnd0epmsyx" path="res://Scenes/DEBUG/AssignerCollision.tres" id="12_xm7ie"]
+[ext_resource type="Script" uid="uid://chf0h8is8bspm" path="res://Code/BuddyAssigner.cs" id="13_xm7ie"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_2m3mh"]
+material = ExtResource("3_2m3mh")
+
+[node name="Node3D" type="Node3D"]
+script = ExtResource("1_wy5vy")
+
+[node name="Static_Body" parent="." instance=ExtResource("2_xm7ie")]
+transform = Transform3D(32.64, 0, 0, 0, 1.115, 0, 0, 0, 12.861, 0, 0, 0)
+
+[node name="Player" parent="." instance=ExtResource("4_3ql7q")]
+transform = Transform3D(0.99926, 0, 0, 0, 0.99926, 0, 0, 0, 0.99926, 0.00224543, 2.78669, 0.0203321)
+
+[node name="Chute" parent="." instance=ExtResource("5_x3v0w")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -10.008, 1.6301, 6.44957)
+_Item = ExtResource("6_ms5gd")
+
+[node name="Chute2" parent="." instance=ExtResource("5_x3v0w")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -13.6209, 1.6301, 6.47915)
+_Item = ExtResource("6_ms5gd")
+
+[node name="Cannon-Upper" parent="." instance=ExtResource("7_x324h")]
+transform = Transform3D(-0.0192498, 0, -0.999815, 0, 1, 0, 0.999815, 0, -0.0192498, 10.3656, 1.04465, 0)
+
+[node name="Path3D3" type="Path3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.42844, 0)
+curve = ExtResource("8_axmxi")
+
+[node name="Path3D4" type="Path3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.42844, 0)
+curve = ExtResource("10_42yt7")
+
+[node name="Node3D" parent="Path3D4" instance=ExtResource("11_ooxpr")]
+transform = Transform3D(1.05442, 0, -0.31818, 0, 0.73, 0, 3.2008, 0, 0.104816, 4.7065, 0, -1.20311)
+progress = 19.6415
+
+[node name="Path3D5" type="Path3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.48133, 1.42844, 0)
+curve = ExtResource("12_wxq2q")
+
+[node name="Node3D" type="Node3D" parent="." node_paths=PackedStringArray("_paths")]
+transform = Transform3D(15.43, 0, 0, 0, 2.845, 0, 0, 0, 6.47, -11.4285, 0, 3.11541)
+script = ExtResource("13_xm7ie")
+_paths = []
+
+[node name="Area3D" type="Area3D" parent="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.801286, 0)
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D/Area3D"]
+shape = ExtResource("12_xm7ie")
+debug_color = Color(0.180392, 0.592157, 0.686275, 0.839216)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Node3D/Area3D"]
+visible = false
+mesh = SubResource("BoxMesh_2m3mh")
+
+[connection signal="area_entered" from="Node3D/Area3D" to="Node3D" method="Assign"]
+
+[editable path="Cannon-Upper"]
+[editable path="Cannon-Upper/Cannon"]

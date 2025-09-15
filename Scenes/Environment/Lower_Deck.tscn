@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://cwnrrijda1co6"]
+[gd_scene load_steps=5 format=3 uid="uid://cwnrrijda1co6"]
 
-[ext_resource type="PackedScene" uid="uid://db4wagmehfi8q" path="res://Assets/Models/Rooms/Lower_Room.gltf" id="1_5qvvq"]
-[ext_resource type="Material" uid="uid://b02xxqtyj0yis" path="res://Assets/Material/Wood Plank/wood_planks.tres" id="2_4l84v"]
-[ext_resource type="PackedScene" uid="uid://dpbdc50rn20hj" path="res://Scenes/Chute.tscn" id="3_0atcd"]
+[ext_resource type="PackedScene" uid="uid://db4wagmehfi8q" path="res://ASSETS/Models/Rooms/Lower_Room.gltf" id="1_5qvvq"]
+[ext_resource type="Material" uid="uid://b02xxqtyj0yis" path="res://ASSETS/Material/Wood Plank/wood_planks.tres" id="2_4l84v"]
+[ext_resource type="PackedScene" uid="uid://dpbdc50rn20hj" path="res://Scenes/Environment/Tank Pieces/Chute.tscn" id="3_0atcd"]
+[ext_resource type="PackedScene" uid="uid://b8xjneu8d0sbf" path="res://Scenes/ITEMS/Coal.tscn" id="4_ugp7e"]
 
 [node name="Lower_Deck" type="Node3D"]
 
@@ -16,8 +17,12 @@ transform = Transform3D(2.45, 0, 0, 0, 0.2, 0, 0, 0, 1.7, -1.485, 1, 8.2)
 
 [node name="Chute" parent="." instance=ExtResource("3_0atcd")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -13.1389, 1.30485, -8.97144)
+_Item = ExtResource("4_ugp7e")
+ON = true
 
 [node name="Chute2" parent="." instance=ExtResource("3_0atcd")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -9.57954, 1.30485, -8.97144)
+_Item = ExtResource("4_ugp7e")
+ON = true
 
 [editable path="Lower_Room"]

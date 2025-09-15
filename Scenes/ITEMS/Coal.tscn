@@ -1,0 +1,47 @@
+[gd_scene load_steps=9 format=3 uid="uid://b8xjneu8d0sbf"]
+
+[ext_resource type="Script" uid="uid://cqkdlp1ukvd0x" path="res://Code/Item.cs" id="1_bdern"]
+[ext_resource type="Script" uid="uid://d13c27iqrhrii" path="res://Code/Fundamentals/Rigid_Body.cs" id="2_c1i17"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_huq4t"]
+bounce = 0.5
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_kea2q"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_ucm5s"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_r0j6m"]
+albedo_color = Color(0.346293, 0, 0.14859, 1)
+
+[sub_resource type="Animation" id="Animation_jx8qc"]
+resource_name = "Bounce"
+length = 0.5
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_vxyh5"]
+_data = {
+&"Bounce": SubResource("Animation_jx8qc")
+}
+
+[node name="Coal" type="Node3D"]
+script = ExtResource("1_bdern")
+
+[node name="RigidBody3D" type="RigidBody3D" parent="."]
+collision_layer = 514
+collision_mask = 2
+physics_material_override = SubResource("PhysicsMaterial_huq4t")
+linear_damp = 0.2
+angular_damp = 5.0
+script = ExtResource("2_c1i17")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D"]
+shape = SubResource("SphereShape3D_kea2q")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D"]
+mesh = SubResource("SphereMesh_ucm5s")
+skeleton = NodePath("")
+surface_material_override/0 = SubResource("StandardMaterial3D_r0j6m")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_vxyh5")
+}

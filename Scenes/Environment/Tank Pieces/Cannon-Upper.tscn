@@ -1,0 +1,87 @@
+[gd_scene load_steps=12 format=3 uid="uid://lfx6gfr2tasr"]
+
+[ext_resource type="PackedScene" uid="uid://b6jrffyofuwvs" path="res://ASSETS/Models/Objects/Cannon.gltf" id="1_6kduf"]
+[ext_resource type="Script" uid="uid://duw0hsa5jar85" path="res://Code/Cannon.cs" id="1_yup5h"]
+
+[sub_resource type="Animation" id="Animation_7cq2i"]
+resource_name = "Kaboom"
+length = 2.0
+tracks/0/type = "scale_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Cannon/Empty")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 1, 1, 1, 0.5, 1, 1, 1.3, 0.5, 0.7, 1, 1, 1.3, 0.5, 1, 1, 1, 0.7, 1.3, 1.3, 1, 1, 0.7, 1.3, 1.7, 1, 1, 1, 1)
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_8wr3n"]
+_data = {
+&"Kaboom": SubResource("Animation_7cq2i")
+}
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_5ewig"]
+friction = 0.0
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_xxv1l"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0ewrx"]
+transparency = 1
+albedo_color = Color(1, 0.701961, 1, 0.12549)
+
+[sub_resource type="BoxMesh" id="BoxMesh_egvwf"]
+material = SubResource("StandardMaterial3D_0ewrx")
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_dux1w"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_rvrtj"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_aw80n"]
+transparency = 1
+albedo_color = Color(1, 1, 0.0745098, 0.337255)
+
+[node name="Cannon-Upper" type="Node3D"]
+script = ExtResource("1_yup5h")
+
+[node name="Cannon" parent="." instance=ExtResource("1_6kduf")]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+reset_on_save = false
+libraries = {
+&"": SubResource("AnimationLibrary_8wr3n")
+}
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+axis_lock_linear_x = true
+axis_lock_linear_y = true
+axis_lock_linear_z = true
+axis_lock_angular_x = true
+axis_lock_angular_y = true
+axis_lock_angular_z = true
+physics_material_override = SubResource("PhysicsMaterial_5ewig")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("BoxShape3D_xxv1l")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00956059, 2.38419e-07, -0.0201774)
+mesh = SubResource("BoxMesh_egvwf")
+skeleton = NodePath("")
+
+[node name="Area3D" type="Area3D" parent="."]
+transform = Transform3D(4.095, 0, 0, 0, 4.095, 0, 0, 0, 4.095, 0, 0, 0)
+collision_layer = 2
+collision_mask = 768
+collision_priority = 100.0
+monitorable = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(0.981394, 0, 0, 0, 0.981394, 0, 0, 0, 0.981394, 0, 0, 0)
+shape = SubResource("SphereShape3D_dux1w")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Area3D"]
+mesh = SubResource("SphereMesh_rvrtj")
+surface_material_override/0 = SubResource("StandardMaterial3D_aw80n")
+
+[connection signal="body_entered" from="Area3D" to="." method="On_Collision"]
+
+[editable path="Cannon"]

@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://b70kk3fk54j2f"]
+
+[ext_resource type="PackedScene" uid="uid://b1ctqfv8kafn8" path="res://Scenes/Fundamentals/Static_Body.tscn" id="1_tvady"]
+[ext_resource type="PackedScene" uid="uid://bjn7smkl2qxwq" path="res://Scenes/NPC/player.tscn" id="3_qng1e"]
+[ext_resource type="Texture2D" uid="uid://bgnhmcuxdt53e" path="res://ASSETS/Material/godot-prototype-texture/PNG/checker_512x512/checker_lime_512x512.png" id="3_ybcog"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8ioby"]
+albedo_texture = ExtResource("3_ybcog")
+uv1_scale = Vector3(52.585, 87.355, 1)
+
+[node name="DebugFollowPlayer" type="Node3D"]
+
+[node name="Player" parent="." instance=ExtResource("3_qng1e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.08989, 0)
+
+[node name="Static_Body2" parent="." instance=ExtResource("1_tvady")]
+transform = Transform3D(69, 0, 0, 0, 1, 0, 0, 0, 159, 0, 0, 0)
+
+[node name="MeshInstance3D" parent="Static_Body2/StaticBody3D" index="1"]
+surface_material_override/0 = SubResource("StandardMaterial3D_8ioby")
+
+[editable path="Static_Body2"]

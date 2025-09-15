@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://qmd3fdyyd1we"
-path.s3tc="res://.godot/imported/Metal_heightmap.png-8500b44c3c144d2308fb287ca0e4a244.s3tc.ctex"
+path.s3tc="res://.godot/imported/Metal_heightmap.png-710f56138a8d0b311a57f9a789d690cb.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Assets/Material/Metal/Metal_heightmap.png"
-dest_files=["res://.godot/imported/Metal_heightmap.png-8500b44c3c144d2308fb287ca0e4a244.s3tc.ctex"]
+source_file="res://ASSETS/Material/Metal/Metal_heightmap.png"
+dest_files=["res://.godot/imported/Metal_heightmap.png-710f56138a8d0b311a57f9a789d690cb.s3tc.ctex"]
 
 [params]
 
